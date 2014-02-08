@@ -272,7 +272,7 @@ wn.module_page["Selling"] = [
 //			{
 //				"label":wn._("Sales Person Target Variance (Item Group-Wise)"),
 //				route: "query-report/Sales Person Target Variance Item Group-Wise",
-//				doctype: "Sales Person",
+//				doctype: "Sales Person"
 ////			},
 //			{
 //				"label":wn._("Customers Not Buying Since Long Time"),

@@ -161,13 +161,30 @@
  }, 
  {
   "cancel": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
-  "role": "Administrator"
+  "permlevel": 0, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "match": "account_id", 
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "Franchise", 
+  "write": 1
  }, 
  {
   "doctype": "DocPerm", 
-  "match": "account_id", 
-  "report": 1, 
+  "permlevel": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 1, 
   "role": "Franchise"
  }
 ]

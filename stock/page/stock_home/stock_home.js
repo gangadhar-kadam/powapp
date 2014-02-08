@@ -119,16 +119,16 @@ wn.module_page["Stock"] = [
 //				"doctype": "Item Group",
 //				"description": wn._("Item classification.")
 //			},
-			{
-				"doctype":"UOM",
-				"label": wn._("Unit of Measure") + " (UOM)",
-				"description": wn._("e.g. Kg, Unit, Nos, m")
-			},
-			{
-				"doctype":"Brand",
-				"label": wn._("Brand"),
-				"description": wn._("Brand master.")
-			}
+//			{
+//				"doctype":"UOM",
+//				"label": wn._("Unit of Measure") + " (UOM)",
+//				"description": wn._("e.g. Kg, Unit, Nos, m")
+//			},
+//			{
+//				"doctype":"Brand",
+//				"label": wn._("Brand"),
+//				"description": wn._("Brand master.")
+//			}
 		]
 	},
 	{
@@ -193,16 +193,16 @@ wn.module_page["Stock"] = [
 //				route: "Report/Serial No/Serial No Service Contract Expiry",
 //				doctype: "Serial No"
 //			},
-			{
-				"label":wn._("Serial No Status"),
-				route: "Report/Serial No/Serial No Status",
-				doctype: "Serial No"
-			},
-			{
-				"label":wn._("Serial No Warranty Expiry"),
-				route: "Report/Serial No/Serial No Warranty Expiry",
-				doctype: "Serial No"
-			},
+//			{
+//				"label":wn._("Serial No Status"),
+//				route: "Report/Serial No/Serial No Status",
+//				doctype: "Serial No"
+//			},
+//			{
+//				"label":wn._("Serial No Warranty Expiry"),
+//				route: "Report/Serial No/Serial No Warranty Expiry",
+//				doctype: "Serial No"
+//			},
 //			{
 //				"label":wn._("Item-wise Price List Rate"),
 //				route: "Report/Item Price/Item-wise Price List Rate",
@@ -238,16 +238,16 @@ wn.module_page["Stock"] = [
 //				route: "query-report/Itemwise Recommended Reorder Level",
 //				doctype: "Item"
 //			},
-			{
-				"label":wn._("Delivery Note Trends"),
-				route: "query-report/Delivery Note Trends",
-				doctype: "Delivery Note"
-			},
-			{
-				"label":wn._("Purchase Receipt Trends"),
-				route: "query-report/Purchase Receipt Trends",
-				doctype: "Purchase Receipt"
-			},
+//			{
+//				"label":wn._("Delivery Note Trends"),
+//				route: "query-report/Delivery Note Trends",
+//				doctype: "Delivery Note"
+//			},
+//			{
+//				"label":wn._("Purchase Receipt Trends"),
+//				route: "query-report/Purchase Receipt Trends",
+//				doctype: "Purchase Receipt"
+//			},
 		]
 	}
 ]

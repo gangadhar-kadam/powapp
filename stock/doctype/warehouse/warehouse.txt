@@ -1,8 +1,8 @@
 [
  {
   "creation": "2013-03-07 18:50:32", 
-  "docstatus": 0, 
-  "modified": "2014-02-08 15:10:51", 
+  "docstatus": 0,
+  "modified": "2014-02-08 14:25:45", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -51,6 +51,16 @@
   "in_list_view": 1, 
   "label": "Franchise Name", 
   "options": "Franchise", 
+  "reqd": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "subf_name", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "in_list_view": 1, 
+  "label": "Sub-Franchise Name", 
+  "options": "Sub Franchise", 
   "reqd": 0
  }, 
  {

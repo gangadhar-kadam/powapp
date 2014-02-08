@@ -14,12 +14,9 @@ def execute(filters=None):
         return columns, data
 
 def get_columns():
-        return [
-                "Freanchise:Link/Franchise:160", "Device ID:data:100", "Sub Franchise:Link/Sub Franchise:100","Sheduled Visting Date:date:100","Visted(Yes/No):data:100","Vistited Date Time:datetime:120","Reason:data:100"
-        ]
+        return ["Freanchise:Link/Franchise:130", "Device ID:data:100", "Sub Franchise:Link/Sub Franchise:120","Sheduled Visting Date:date:150","Visted(Yes/No):data:120","Vistited Date Time:datetime:150","Reason:data:300"]
 
 def get_tracking_details(filters):
         #conditions = get_conditions(filters)
-        return webnotes.conn.sql("""select account_id,device_id,sf_name,visiting_date,visited,visited_date,reason from `tabSub Franchise Visiting Schedule`  ORDER BY name """)
-
+        return webnotes.conn.sql("""select account_id,device_id,sf_name,visiting_date,visited,visited_date,reason from `tabSub Franchise Visiting Schedule`  ORDER BY sf_name,visiting_date """)
 

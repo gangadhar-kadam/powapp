@@ -1,7 +1,9 @@
 cur_frm.cscript.track_battery_location=function(doc,cdt,cdn)
 {
-   method: "manufacturing.doctype.production_order.production_order.get_detail1",
-   args: {"serial_no":doc.barcode},
+   //alert("in tracking location");
+  wn.call({
+	method: "manufacturing.doctype.production_order.production_order.get_detail1",
+  args: {"serial_no":doc.barcode},
 	callback: function(r) {
                 if(r.message) {
                         if (r.message=="Not"){

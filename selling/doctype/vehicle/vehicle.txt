@@ -2,7 +2,7 @@
  {
   "creation": "2014-01-21 17:32:13", 
   "docstatus": 0, 
-  "modified": "2014-02-08 14:34:52", 
+  "modified": "2014-02-08 14:34:52",
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -77,8 +77,9 @@
   "doctype": "DocField", 
   "fieldname": "server_id", 
   "fieldtype": "Data", 
-  "hidden": 1, 
-  "label": "Server ID"
+  "hidden": 1,
+  "label": "Server ID", 
+  "reqd": 0
  }, 
  {
   "doctype": "DocField", 
@@ -91,6 +92,7 @@
   "doctype": "DocField", 
   "fieldname": "driver_id", 
   "fieldtype": "Data", 
+  "hidden": 0, 
   "label": "Driver ID", 
   "reqd": 1
  }, 
@@ -217,6 +219,15 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "sf_name", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Sub-Franchise Name", 
+  "options": "Sub Franchise", 
+  "reqd": 0
+ }, 
+ {
+  "doctype": "DocField",
   "fieldname": "vehicle_description", 
   "fieldtype": "Small Text", 
   "label": "Vehicle Description"

@@ -15,13 +15,12 @@ def execute(filters=None):
 	return columns, data
 	
 def get_columns():
-	return [
-		"Timestamp::160", "Latitude:Float:100", "Longitude:Float:100","Speed KPH:Float:100","Distance KM:Float:100","Address:Data:120","Status Code:Int:100"
-	]
+	return ["Date Time::160", "Latitude:Float:100", "Longitude:Float:100","Speed KPH:Float:100","Distance KM:Float:100","Address:Data:120","Status Code:Int:100"]
 
 def get_tracking_details(filters):
 #	conditions = get_conditions(filters)
-	return webnotes.conn.sql("""select FROM_UNIXTIME(timestamp), latitude, longitude,speedKPH,distanceKM,address,statusCode from EventData ORDER BY timestamp DESC""")
+	return webnotes.conn.sql("""select FROM_UNIXTIME(timestamp) as timestamp, latitude, longitude,speedKPH,distanceKM,address,statusCode 
+			from EventData ORDER BY timestamp DESC""")
 
 
 #def get_conditions(filters):

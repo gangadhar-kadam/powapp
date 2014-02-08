@@ -1,8 +1,8 @@
 [
  {
   "creation": "2014-01-23 12:19:28", 
-  "docstatus": 0, 
-  "modified": "2014-02-08 14:22:10", 
+  "docstatus": 0,
+  "modified": "2014-02-08 14:22:10",
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -98,6 +98,12 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "contact_phone", 
+  "fieldtype": "Data", 
+  "label": "Contact Phone"
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "column_break_8", 
   "fieldtype": "Column Break"
  }, 
@@ -133,7 +139,7 @@
   "label": "Contact Phone"
  }, 
  {
-  "doctype": "DocField", 
+  "doctype": "DocField",
   "fieldname": "contact_email", 
   "fieldtype": "Data", 
   "label": "Contact Email"
