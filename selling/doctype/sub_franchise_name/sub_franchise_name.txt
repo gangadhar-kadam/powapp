@@ -1,0 +1,56 @@
+[
+ {
+  "creation": "2014-02-05 13:24:10", 
+  "docstatus": 0, 
+  "modified": "2014-02-07 10:33:08", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "istable": 1, 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sf_name", 
+  "fieldtype": "Link", 
+  "in_list_view": 1, 
+  "label": "Sub Franchise Name", 
+  "name": "__common__", 
+  "options": "Sub Franchise", 
+  "parent": "Sub Franchise Name", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Sub Franchise Name", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Sub Franchise Name"
+ }, 
+ {
+  "doctype": "DocField"
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "All"
+ }
+]

@@ -1,0 +1,371 @@
+[
+ {
+  "creation": "2014-01-21 17:32:13", 
+  "docstatus": 0, 
+  "modified": "2014-02-08 14:34:52", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "field:device_id", 
+  "custom": 1, 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Vehicle", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Vehicle", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "read": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Vehicle"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "device_info", 
+  "fieldtype": "Section Break", 
+  "label": "Device Information"
+ }, 
+ {
+  "default": "1", 
+  "doctype": "DocField", 
+  "fieldname": "active", 
+  "fieldtype": "Check", 
+  "in_list_view": 1, 
+  "label": "Active"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "account_id", 
+  "fieldtype": "Link", 
+  "in_list_view": 1, 
+  "label": "Franchise Name", 
+  "options": "Franchise", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "device_id", 
+  "fieldtype": "Data", 
+  "in_list_view": 0, 
+  "label": "Device Id", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "vehicle_id", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Vehicle ID", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "server_id", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Server ID"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "unique_id", 
+  "fieldtype": "Data", 
+  "label": "Unique ID", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "driver_id", 
+  "fieldtype": "Data", 
+  "label": "Driver ID", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "short_name", 
+  "fieldtype": "Data", 
+  "label": "Short Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "vehicle_make", 
+  "fieldtype": "Data", 
+  "label": "Vehicle Make"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "vehicle_model", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Vehicle Model"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_type", 
+  "fieldtype": "Data", 
+  "label": "Equipment Type"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "serial_number", 
+  "fieldtype": "Data", 
+  "label": "Serial Number"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sms_email_address", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "SMS Email Address"
+ }, 
+ {
+  "default": "0.0", 
+  "doctype": "DocField", 
+  "fieldname": "reported_odometer", 
+  "fieldtype": "Float", 
+  "label": "Reported Odometer"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_13", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sf_name", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Sub-Franchise Name", 
+  "options": "Sub Franchise", 
+  "reqd": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "group_membership", 
+  "fieldtype": "Link", 
+  "label": "Group Membership", 
+  "options": "Device Group", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "imei_number", 
+  "fieldtype": "Data", 
+  "label": "IMEI/ESN Number", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "creation_time", 
+  "fieldtype": "Int", 
+  "hidden": 0, 
+  "label": "Creation Time"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "firmware_version", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Firmware Version"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "license_plate", 
+  "fieldtype": "Data", 
+  "label": "License Plate"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sim_phone", 
+  "fieldtype": "Data", 
+  "label": "SIM Phone#"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "map_route_color", 
+  "fieldtype": "Select", 
+  "label": "Map Route Color", 
+  "options": "Default\nBlack\nBrown\nRed\nOrange\nGreen\nBlue\nPurple\nGray\nCyan\nPink\nNone"
+ }, 
+ {
+  "default": "0.0", 
+  "doctype": "DocField", 
+  "fieldname": "fuel_capacity", 
+  "fieldtype": "Float", 
+  "label": "Fuel Capacity"
+ }, 
+ {
+  "default": "0.0", 
+  "doctype": "DocField", 
+  "fieldname": "reported_engine_hours", 
+  "fieldtype": "Float", 
+  "label": "Reported Engine Hours"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "vehicle_description", 
+  "fieldtype": "Small Text", 
+  "label": "Vehicle Description"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "deviece_group", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Deviece Group Information"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "group_id", 
+  "fieldtype": "Data", 
+  "label": "Group Id"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "display_name", 
+  "fieldtype": "Data", 
+  "label": "Display Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "last_update_time", 
+  "fieldtype": "Int", 
+  "label": "Last Update Time"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_31", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "description", 
+  "fieldtype": "Small Text", 
+  "label": "Description"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "notes", 
+  "fieldtype": "Text", 
+  "label": "Notes"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "device_list_info", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Device List Information"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "a_id", 
+  "fieldtype": "Data", 
+  "label": "Account Id"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "g_id", 
+  "fieldtype": "Data", 
+  "label": "Group Id"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "d_id", 
+  "fieldtype": "Data", 
+  "label": "Device Id"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_37", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "update_time", 
+  "fieldtype": "Int", 
+  "label": "Last Update Time"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "c_time", 
+  "fieldtype": "Int", 
+  "label": "Creation Time"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "group_list_info", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Group List Information"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "acc_id", 
+  "fieldtype": "Data", 
+  "label": "Account Id"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "user_id", 
+  "fieldtype": "Data", 
+  "label": "User Id"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_44", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "grp_id", 
+  "fieldtype": "Data", 
+  "label": "Group Id"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "creationtime", 
+  "fieldtype": "Int", 
+  "label": "Creation Time"
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "match": "account_id", 
+  "permlevel": 0, 
+  "role": "Franchise", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 1, 
+  "role": "Franchise"
+ }
+]

@@ -1,0 +1,78 @@
+[
+ {
+  "creation": "2014-01-22 12:52:45", 
+  "docstatus": 0, 
+  "modified": "2014-01-28 16:33:20", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "field:group_id", 
+  "custom": 1, 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Devicelist", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Devicelist", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Devicelist"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "account_id", 
+  "fieldtype": "Data", 
+  "hidden": 0, 
+  "label": "Franchise Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "group_id", 
+  "fieldtype": "Data", 
+  "label": "Group Id"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "device_id", 
+  "fieldtype": "Data", 
+  "hidden": 0, 
+  "label": "Device Id"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "last_update_time", 
+  "fieldtype": "Int", 
+  "hidden": 1, 
+  "label": "Last Update Time"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "creation_time", 
+  "fieldtype": "Int", 
+  "hidden": 1, 
+  "label": "Creation Time"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

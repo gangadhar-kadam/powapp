@@ -1,0 +1,93 @@
+[
+ {
+  "creation": "2014-02-05 13:20:09", 
+  "docstatus": 0, 
+  "modified": "2014-02-08 14:50:30", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "field:route_name", 
+  "custom": 1, 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Route Master", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Route Master", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "read": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Route Master"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "account_id", 
+  "fieldtype": "Link", 
+  "label": "Franchise Name", 
+  "options": "Franchise"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "device_id", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Device Id"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "route_name", 
+  "fieldtype": "Data", 
+  "label": "Route Name", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sub_franchise_details", 
+  "fieldtype": "Table", 
+  "label": "Sub Franchise Details", 
+  "options": "Sub Franchise Name"
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "match": "account_id", 
+  "permlevel": 0, 
+  "role": "Franchise", 
+  "write": 1
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 1, 
+  "role": "Franchise"
+ }
+]

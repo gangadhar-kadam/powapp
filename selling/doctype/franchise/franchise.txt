@@ -1,0 +1,189 @@
+[
+ {
+  "creation": "2014-01-28 15:32:10", 
+  "docstatus": 0, 
+  "modified": "2014-02-08 14:49:56", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "field:account_id", 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Franchise", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Franchise", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "read": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Franchise"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "f_information", 
+  "fieldtype": "Section Break", 
+  "label": "Franchise Information"
+ }, 
+ {
+  "default": "1", 
+  "doctype": "DocField", 
+  "fieldname": "active", 
+  "fieldtype": "Check", 
+  "in_list_view": 1, 
+  "label": "Active"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "account_id", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Franchise Name", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "password", 
+  "fieldtype": "Password", 
+  "label": "Password", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "contact_name", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Contact Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "contact_phone", 
+  "fieldtype": "Data", 
+  "label": "Contact Phone"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "contact_email", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Contact Email"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "notify_email", 
+  "fieldtype": "Data", 
+  "label": "Notify Email"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "account_description", 
+  "fieldtype": "Small Text", 
+  "label": "Account Description"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_7", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sf_name", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Sub-Franchise Name", 
+  "options": "Sub Franchise", 
+  "reqd": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "speed_units", 
+  "fieldtype": "Select", 
+  "label": "Speed Units", 
+  "options": "mph\nkm/h\nknots"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "distance_units", 
+  "fieldtype": "Select", 
+  "label": "Distance Units", 
+  "options": "Miles\nKm\nNm"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "volume_units", 
+  "fieldtype": "Select", 
+  "label": "Volume Units", 
+  "options": "gal\nLiter\nIG\nft^3"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "economy_units", 
+  "fieldtype": "Select", 
+  "label": "Economy Units", 
+  "options": "mpg\nkm/L\nkpg\nL/100km"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "pressure_units", 
+  "fieldtype": "Select", 
+  "label": "Pressure Units", 
+  "options": "kPa\npsi\nmmHg\nbar"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature_units", 
+  "fieldtype": "Select", 
+  "label": "Temperature Units", 
+  "options": "F\nC"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "latitude_longitude_format", 
+  "fieldtype": "Select", 
+  "label": "Latitude/Longitude Format", 
+  "options": "Degrees\nDeg:Min:Sec\nDeg:Min"
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "create": 0, 
+  "doctype": "DocPerm", 
+  "match": "account_id", 
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "Franchise", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 1, 
+  "role": "Franchise"
+ }
+]
