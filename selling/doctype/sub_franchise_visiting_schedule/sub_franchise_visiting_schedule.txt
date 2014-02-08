@@ -1,0 +1,124 @@
+[
+ {
+  "creation": "2014-02-05 13:33:16", 
+  "docstatus": 0, 
+  "modified": "2014-02-08 12:47:02", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "SFV.####", 
+  "custom": 0, 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Sub Franchise Visiting Schedule", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Sub Franchise Visiting Schedule", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "read": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Sub Franchise Visiting Schedule"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "account_id", 
+  "fieldtype": "Link", 
+  "label": "Franchise Name", 
+  "options": "Franchise"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "device_id", 
+  "fieldtype": "Data", 
+  "label": "Device Id"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sf_name", 
+  "fieldtype": "Link", 
+  "label": "Sub Franchise Name", 
+  "options": "Sub Franchise"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "visiting_date", 
+  "fieldtype": "Date", 
+  "label": "Visiting Date"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_5", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "route", 
+  "fieldtype": "Data", 
+  "label": "Route"
+ }, 
+ {
+  "default": "No", 
+  "doctype": "DocField", 
+  "fieldname": "visited", 
+  "fieldtype": "Select", 
+  "label": "Visited", 
+  "options": "Yes\nNo"
+ }, 
+ {
+  "depends_on": "eval:doc.visited!='Yes'", 
+  "doctype": "DocField", 
+  "fieldname": "reason", 
+  "fieldtype": "Small Text", 
+  "label": "Reason"
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "match": "account_id", 
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "Franchise", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "match": "sf_name", 
+  "permlevel": 0, 
+  "role": "Sub-Franchise"
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 1, 
+  "role": "Franchise"
+ }
+]

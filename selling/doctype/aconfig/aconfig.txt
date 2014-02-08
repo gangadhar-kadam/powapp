@@ -1,0 +1,91 @@
+[
+ {
+  "creation": "2014-01-24 11:58:50", 
+  "docstatus": 0, 
+  "modified": "2014-01-27 15:35:55", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "A.#####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "aconfig", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "aconfig", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "aconfig"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ids", 
+  "fieldtype": "Int", 
+  "hidden": 1, 
+  "label": "Id", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "property_name", 
+  "fieldtype": "Data", 
+  "label": "Property Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "property_value", 
+  "fieldtype": "Data", 
+  "label": "Property Value"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_4", 
+  "fieldtype": "Column Break", 
+  "hidden": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "flag", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Flag", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "last_update_time", 
+  "fieldtype": "Int", 
+  "hidden": 1, 
+  "label": "Last Update Time"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "creation_time", 
+  "fieldtype": "Int", 
+  "hidden": 1, 
+  "label": "Creation Time"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

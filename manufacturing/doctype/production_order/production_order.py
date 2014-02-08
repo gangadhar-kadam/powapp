@@ -172,3 +172,63 @@ def make_stock_entry(production_order_id, purpose):
 		
 	stock_entry.run_method("get_items")
 	return [d.fields for d in stock_entry.doclist]
+
+
+
+@webnotes.whitelist()
+def get_details():
+	webnotes.errprint("user")
+	webnotes.errprint(webnotes.session['user'])
+	usr=webnotes.session['user']
+	pr=webnotes.conn.sql("select account_id from tabProfile where name='"+usr+"' and franchise_admin='1'")
+	if pr:
+		rs="select name,password from tabFranchise where name='"+pr[0][0]+"'"
+		webnotes.errprint(rs)
+		res=webnotes.conn.sql(rs)
+		#return "testaccount","123456"
+		webnotes.errprint(res)
+        	if res:
+		   return res
+		else:
+		   return "Not"
+	else:
+	   return "Not"
+
+@webnotes.whitelist()
+def get_detail1(serial_no=None):
+	if serial_no:
+		txt = serial_no
+		if webnotes.session['user'] in ['Administrator','administrator']:
+			warehouse = webnotes.conn.sql(""" select s.warehouse 
+					from `tabStock Ledger Entry` s, `tabStock Entry` ste 
+					where s.serial_no like '%(serial_no)s'
+						and s.voucher_no=ste.name 
+						and s.actual_qty > 0 
+						and ste.purpose='Material Transfer' """%{'serial_no': "%%%s%%" % txt},as_list=1,debug=1)
+			if warehouse:
+				if warehouse=='Finished Goods - P':
+					return "adm"
+				else:
+					device_id = webnotes.conn.sql("""select name from tabVehicle where account_id = '%s'"""%warehouse[0][0],as_list=1)
+					rs="select name, password from tabFranchise where name='"+warehouse[0][0]+"'"
+					res=webnotes.conn.sql(rs)
+					return res, device_id[0][0]
+			else:
+				return "Not"
+
+		else:
+			pr=webnotes.conn.sql("select account_id from tabProfile where name='"+webnotes.session['user']+"' and franchise_admin='1'")
+			if pr:
+				rs="select name, password from tabFranchise where name='"+pr[0][0]+"'"
+				res=webnotes.conn.sql(rs)
+				if res:
+					device_id = webnotes.conn.sql("""select name from tabVehicle where account_id = '%s'"""%pr[0][0],as_list=1)
+					return res , device_id[0][0]
+				else:
+					return "Not"
+			else:
+				return "Not"
+	else:
+		webnotes.msgprint("Please provide serial number",raise_exception=1)
+
+

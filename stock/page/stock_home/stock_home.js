@@ -38,11 +38,11 @@ wn.module_page["Stock"] = [
 		title: wn._("Masters"),
 		icon: "icon-book",
 		items: [
-			{
-				label: wn._("Serial No"),
-				description: wn._("Single unit of an Item."),
-				doctype:"Serial No"
-			},
+//			{
+//				label: wn._("Serial No"),
+//				description: wn._("Single unit of an Item."),
+//				doctype:"Serial No"
+//			},
 			{
 				label: wn._("Batch"),
 				description: wn._("Batch (lot) of an Item."),
@@ -64,71 +64,71 @@ wn.module_page["Stock"] = [
 				"label": wn._("Stock Reconciliation"),
 				description: wn._("Upload stock balance via csv.")
 			},
-			{
-				"doctype":"Installation Note",
-				"label": wn._("Installation Note"),
-				description: wn._("Installation record for a Serial No.")
-			},
-			{
-				"label": wn._("Packing Slip"),
-				"doctype":"Packing Slip",
-				description: wn._("Split Delivery Note into packages.")
-			},
-			{
-				"doctype":"Price List",
-				"label": wn._("Price List"),
-				"description": wn._("Multiple Price list.")
-			},
-			{
-				"doctype":"Item Price",
-				"label": wn._("Item Price"),
-				"description": wn._("Multiple Item prices.")
-			},
-			{
-				"doctype":"Quality Inspection",
-				"label": wn._("Quality Inspection"),
-				description: wn._("Incoming quality inspection.")
-			},
-			{
-				"route":"Form/Landed Cost Wizard/Landed Cost Wizard",
-				"label": wn._("Landed Cost Wizard"),
-				description: wn._("Distribute transport overhead across items."),
-				doctype: "Landed Cost Wizard"
-			},
-			{
-				"route":"Form/Stock UOM Replace Utility/Stock UOM Replace Utility",
-				"label": wn._("UOM Replace Utility"),
-				description: wn._("Change UOM for an Item."),
-				"doctype": "Stock UOM Replace Utility"
-			},
+//			{
+//				"doctype":"Installation Note",
+//				"label": wn._("Installation Note"),
+//				description: wn._("Installation record for a Serial No.")
+//			},
+//			{
+//				"label": wn._("Packing Slip"),
+//				"doctype":"Packing Slip",
+//				description: wn._("Split Delivery Note into packages.")
+//			},
+//			{
+//				"doctype":"Price List",
+//				"label": wn._("Price List"),
+//				"description": wn._("Multiple Price list.")
+//			},
+//			{
+//				"doctype":"Item Price",
+//				"label": wn._("Item Price"),
+//				"description": wn._("Multiple Item prices.")
+//			},
+//			{
+//				"doctype":"Quality Inspection",
+//				"label": wn._("Quality Inspection"),
+//				description: wn._("Incoming quality inspection.")
+//			},
+//			{
+//				"route":"Form/Landed Cost Wizard/Landed Cost Wizard",
+//				"label": wn._("Landed Cost Wizard"),
+//				description: wn._("Distribute transport overhead across items."),
+//				doctype: "Landed Cost Wizard"
+//			},
+//			{
+//				"route":"Form/Stock UOM Replace Utility/Stock UOM Replace Utility",
+//				"label": wn._("UOM Replace Utility"),
+//				description: wn._("Change UOM for an Item."),
+//				"doctype": "Stock UOM Replace Utility"
+//			},
 		]
 	},
 	{
 		title: wn._("Setup"),
 		icon: "icon-cog",
 		items: [
-			{
-				"label": wn._("Stock Settings"),
-				"route": "Form/Stock Settings",
-				"doctype":"Stock Settings",
-				"description": wn._("Settings for Stock Module")
-			},
-			{
-				"route":"Sales Browser/Item Group",
-				"label": wn._("Item Group"),
-				"doctype": "Item Group",
-				"description": wn._("Item classification.")
-			},
-			{
-				"doctype":"UOM",
-				"label": wn._("Unit of Measure") + " (UOM)",
-				"description": wn._("e.g. Kg, Unit, Nos, m")
-			},
-			{
-				"doctype":"Brand",
-				"label": wn._("Brand"),
-				"description": wn._("Brand master.")
-			}
+//			{
+//				"label": wn._("Stock Settings"),
+//				"route": "Form/Stock Settings",
+//				"doctype":"Stock Settings",
+//				"description": wn._("Settings for Stock Module")
+//			},
+//			{
+//				"route":"Sales Browser/Item Group",
+//				"label": wn._("Item Group"),
+//				"doctype": "Item Group",
+//				"description": wn._("Item classification.")
+//			},
+//			{
+//				"doctype":"UOM",
+//				"label": wn._("Unit of Measure") + " (UOM)",
+//				"description": wn._("e.g. Kg, Unit, Nos, m")
+//			},
+//			{
+//				"doctype":"Brand",
+//				"label": wn._("Brand"),
+//				"description": wn._("Brand master.")
+//			}
 		]
 	},
 	{
@@ -145,74 +145,74 @@ wn.module_page["Stock"] = [
 				"label":wn._("Stock Balance"),
 				page: "stock-balance"
 			},
-			{
-				"label":wn._("Stock Projected Qty"),
-				doctype: "Item",
-				route: "query-report/Stock Projected Qty"
-			},
-			{
-				"label":wn._("Stock Ageing"),
-				doctype: "Item",
-				route: "query-report/Stock Ageing"
-			},
+//			{
+//				"label":wn._("Stock Projected Qty"),
+//				doctype: "Item",
+//				route: "query-report/Stock Projected Qty"
+//			},
+//			{
+//				"label":wn._("Stock Ageing"),
+//				doctype: "Item",
+//				route: "query-report/Stock Ageing"
+//			},
 		]
 	},
-	{
-		title: wn._("Analytics"),
-		right: true,
-		icon: "icon-bar-chart",
-		items: [
-			{
-				"label":wn._("Stock Analytics"),
-				page: "stock-analytics"
-			},
-		]
-	},
+//	{
+//		title: wn._("Analytics"),
+//		right: true,
+//		icon: "icon-bar-chart",
+//		items: [
+//			{
+//				"label":wn._("Stock Analytics"),
+//				page: "stock-analytics"
+//			},
+//		]
+//	},
 	{
 		title: wn._("Reports"),
 		right: true,
 		icon: "icon-list",
 		items: [
-			{
-				"label":wn._("Ordered Items To Be Delivered"),
-				route: "query-report/Ordered Items To Be Delivered",
-				doctype: "Delivery Note"
-			},
-			{
-				"label":wn._("Purchase Order Items To Be Received"),
-				route: "query-report/Purchase Order Items To Be Received",
-				doctype: "Purchase Receipt"
-			},
-			{
-				"label":wn._("Item Shortage Report"),
-				route: "Report/Bin/Item Shortage Report",
-				doctype: "Purchase Receipt"
-			},
-			{
-				"label":wn._("Serial No Service Contract Expiry"),
-				route: "Report/Serial No/Serial No Service Contract Expiry",
-				doctype: "Serial No"
-			},
-			{
-				"label":wn._("Serial No Status"),
-				route: "Report/Serial No/Serial No Status",
-				doctype: "Serial No"
-			},
-			{
-				"label":wn._("Serial No Warranty Expiry"),
-				route: "Report/Serial No/Serial No Warranty Expiry",
-				doctype: "Serial No"
-			},
-			{
-				"label":wn._("Item-wise Price List Rate"),
-				route: "Report/Item Price/Item-wise Price List Rate",
-				doctype: "Item Price"
-			},
-			{
-				"label":wn._("Purchase In Transit"),
-				route: "query-report/Purchase In Transit",
-				doctype: "Purchase Order"
-			},
+//			{
+//				"label":wn._("Ordered Items To Be Delivered"),
+//				route: "query-report/Ordered Items To Be Delivered",
+//				doctype: "Delivery Note"
+//			},
+//			{
+//				"label":wn._("Purchase Order Items To Be Received"),
+//				route: "query-report/Purchase Order Items To Be Received",
+//				doctype: "Purchase Receipt"
+//			},
+//			{
+//				"label":wn._("Item Shortage Report"),
+//				route: "Report/Bin/Item Shortage Report",
+//				doctype: "Purchase Receipt"
+//			},
+//			{
+//				"label":wn._("Serial No Service Contract Expiry"),
+//				route: "Report/Serial No/Serial No Service Contract Expiry",
+//				doctype: "Serial No"
+//			},
+//			{
+//				"label":wn._("Serial No Status"),
+//				route: "Report/Serial No/Serial No Status",
+//				doctype: "Serial No"
+//			},
+//			{
+//				"label":wn._("Serial No Warranty Expiry"),
+//				route: "Report/Serial No/Serial No Warranty Expiry",
+//				doctype: "Serial No"
+//			},
+//			{
+//				"label":wn._("Item-wise Price List Rate"),
+//				route: "Report/Item Price/Item-wise Price List Rate",
+//				doctype: "Item Price"
+//			},
+//			{
+//				"label":wn._("Purchase In Transit"),
+//				route: "query-report/Purchase In Transit",
+//				doctype: "Purchase Order"
+//			},
 			{
 				"label":wn._("Requested Items To Be Transferred"),
 				route: "query-report/Requested Items To Be Transferred",
@@ -233,21 +233,21 @@ wn.module_page["Stock"] = [
 				route: "query-report/Item Prices",
 				doctype: "Price List"
 			},
-			{
-				"label":wn._("Itemwise Recommended Reorder Level"),
-				route: "query-report/Itemwise Recommended Reorder Level",
-				doctype: "Item"
-			},
-			{
-				"label":wn._("Delivery Note Trends"),
-				route: "query-report/Delivery Note Trends",
-				doctype: "Delivery Note"
-			},
-			{
-				"label":wn._("Purchase Receipt Trends"),
-				route: "query-report/Purchase Receipt Trends",
-				doctype: "Purchase Receipt"
-			},
+//			{
+//				"label":wn._("Itemwise Recommended Reorder Level"),
+//				route: "query-report/Itemwise Recommended Reorder Level",
+//				doctype: "Item"
+//			},
+//			{
+//				"label":wn._("Delivery Note Trends"),
+//				route: "query-report/Delivery Note Trends",
+//				doctype: "Delivery Note"
+//			},
+//			{
+//				"label":wn._("Purchase Receipt Trends"),
+//				route: "query-report/Purchase Receipt Trends",
+//				doctype: "Purchase Receipt"
+//			},
 		]
 	}
 ]

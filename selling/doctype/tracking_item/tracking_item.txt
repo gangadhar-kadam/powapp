@@ -1,0 +1,63 @@
+[
+ {
+  "creation": "2014-02-07 17:11:33", 
+  "docstatus": 0, 
+  "modified": "2014-02-07 17:25:53", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "ti/.####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "istable": 1, 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "in_list_view": 1, 
+  "name": "__common__", 
+  "parent": "tracking item", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "reqd": 1
+ }, 
+ {
+  "create": 0, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "tracking item", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "tracking item"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "item_name", 
+  "fieldtype": "Link", 
+  "label": "Item Name", 
+  "options": "Item"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "barcode", 
+  "fieldtype": "Small Text", 
+  "label": "barcode"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Administrator"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Franchise"
+ }
+]

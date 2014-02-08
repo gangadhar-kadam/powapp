@@ -1,0 +1,90 @@
+[
+ {
+  "creation": "2014-01-22 12:43:28", 
+  "docstatus": 0, 
+  "modified": "2014-02-08 12:44:12", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "field:group_id", 
+  "custom": 1, 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Device Group", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Device Group", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "read": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Device Group"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "group_id", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Group Id", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "account_id", 
+  "fieldtype": "Link", 
+  "label": "Frachise Name", 
+  "options": "Franchise"
+ }, 
+ {
+  "default": "false", 
+  "doctype": "DocField", 
+  "fieldname": "flag", 
+  "fieldtype": "Data", 
+  "hidden": 0, 
+  "label": "Flag", 
+  "read_only": 1
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "match": "account_id", 
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "Franchise", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 1, 
+  "role": "Franchise"
+ }
+]

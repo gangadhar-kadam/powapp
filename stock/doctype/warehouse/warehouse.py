@@ -11,10 +11,10 @@ class DocType:
 		self.doc = doc
 		self.doclist = doclist
 	
-	def autoname(self):
-		suffix = " - " + webnotes.conn.get_value("Company", self.doc.company, "abbr")
-		if not self.doc.warehouse_name.endswith(suffix):
-			self.doc.name = self.doc.warehouse_name + suffix
+#	def autoname(self):
+#		suffix = " - " + webnotes.conn.get_value("Company", self.doc.company, "abbr")
+#		if not self.doc.warehouse_name.endswith(suffix):
+#			self.doc.name = self.doc.warehouse_name + suffix
 
 	def validate(self):
 		if self.doc.email_id and not validate_email_add(self.doc.email_id):

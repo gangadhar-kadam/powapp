@@ -47,28 +47,28 @@ wn.module_page["Manufacturing"] = [
 			},
 		]
 	},
-	{
-		title: wn._("Utility"),
-		icon: "icon-wrench",
-		items: [
-			{
-				"route":"Form/BOM Replace Tool/BOM Replace Tool",
-				"label":wn._("BOM Replace Tool"),
-				"description":wn._("Replace Item / BOM in all BOMs"),
-				doctype: "BOM Replace Tool"
-			},
-		]
-	},
+//	{
+//		title: wn._("Utility"),
+//		icon: "icon-wrench",
+//		items: [
+//			{
+//				"route":"Form/BOM Replace Tool/BOM Replace Tool",
+//				"label":wn._("BOM Replace Tool"),
+//				"description":wn._("Replace Item / BOM in all BOMs"),
+//				doctype: "BOM Replace Tool"
+//			},
+//		]
+//	},
 	{
 		title: wn._("Reports"),
 		right: true,
 		icon: "icon-list",
 		items: [
-			{
-				"label":wn._("Open Production Orders"),
-				route: "query-report/Open Production Orders",
-				doctype:"Production Order"
-			},
+//			{
+//				"label":wn._("Open Production Orders"),
+//				route: "query-report/Open Production Orders",
+//				doctype:"Production Order"
+//			}
 			{
 				"label":wn._("Production Orders in Progress"),
 				route: "query-report/Production Orders in Progress",

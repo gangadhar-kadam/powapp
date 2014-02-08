@@ -1,0 +1,187 @@
+[
+ {
+  "creation": "2014-01-21 18:46:28", 
+  "docstatus": 0, 
+  "modified": "2014-02-08 12:45:27", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "D.####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Driver", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Driver", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "read": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Driver"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "driver_information", 
+  "fieldtype": "Section Break", 
+  "label": "Driver Information"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "driver_id", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Driver Id", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "account_id", 
+  "fieldtype": "Link", 
+  "in_list_view": 1, 
+  "label": "Franchise Name", 
+  "options": "Franchise", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "contact_phone", 
+  "fieldtype": "Data", 
+  "label": "Contact Phone"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "contact_email", 
+  "fieldtype": "Data", 
+  "in_list_view": 0, 
+  "label": "Contact Email"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "birth_date", 
+  "fieldtype": "Date", 
+  "label": "Birth Date"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "device_id", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Device Id"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "driver_status", 
+  "fieldtype": "Int", 
+  "in_list_view": 1, 
+  "label": "Driver Status"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "last_update_time", 
+  "fieldtype": "Int", 
+  "label": "Last Update Time"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "creation_time", 
+  "fieldtype": "Int", 
+  "label": "Creation Time"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_11", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "license_type", 
+  "fieldtype": "Data", 
+  "label": "License Type"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "license_number", 
+  "fieldtype": "Data", 
+  "label": "License Number"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "license_expire", 
+  "fieldtype": "Int", 
+  "label": "License Expire"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "badge_id", 
+  "fieldtype": "Data", 
+  "label": "Badge Id"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "display_name", 
+  "fieldtype": "Data", 
+  "label": "Display Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "address", 
+  "fieldtype": "Small Text", 
+  "label": "Address"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "description", 
+  "fieldtype": "Small Text", 
+  "hidden": 1, 
+  "label": "Description"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "notes", 
+  "fieldtype": "Small Text", 
+  "hidden": 1, 
+  "label": "Notes"
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "match": "account_id", 
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "Franchise", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 1, 
+  "role": "Franchise"
+ }
+]

@@ -1,0 +1,110 @@
+[
+ {
+  "creation": "2014-02-05 13:27:18", 
+  "docstatus": 0, 
+  "modified": "2014-02-05 19:22:09", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "FVS.####", 
+  "custom": 0, 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Franchise Visit Schedule Master", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Franchise Visit Schedule Master", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Franchise Visit Schedule Master"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "visiting_frequency", 
+  "fieldtype": "Select", 
+  "label": "Visiting Frequency", 
+  "options": "\nDaily\nWeekely\n15 Days", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "route", 
+  "fieldtype": "Link", 
+  "label": "Route", 
+  "options": "Route Master", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "start_date", 
+  "fieldtype": "Date", 
+  "label": "Start Date", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "regions", 
+  "fieldtype": "Data", 
+  "label": "Regions"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "account_id", 
+  "fieldtype": "Link", 
+  "hidden": 0, 
+  "label": "Franchise Name", 
+  "options": "Franchise", 
+  "reqd": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sf_name", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Sub Franchise Name", 
+  "options": "Sub Franchise"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "device_id", 
+  "fieldtype": "Data", 
+  "label": "Device Id"
+ }, 
+ {
+  "depends_on": "eval:doc.visiting_frequency!=null && doc.route!=null && doc.start_date!=null", 
+  "doctype": "DocField", 
+  "fieldname": "generate", 
+  "fieldtype": "Button", 
+  "label": "Generate"
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Administrator"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "match": "account_id", 
+  "role": "Franchise"
+ }
+]
