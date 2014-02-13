@@ -1,8 +1,8 @@
 [
  {
   "creation": "2014-01-28 15:32:10", 
-  "docstatus": 0,
-  "modified": "2014-02-08 14:49:56", 
+  "docstatus": 0, 
+  "modified": "2014-02-10 17:46:02", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -67,20 +67,16 @@
   "fieldname": "contact_name", 
   "fieldtype": "Data", 
   "in_list_view": 1, 
-  "label": "Contact Name"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "contact_phone", 
-  "fieldtype": "Data", 
-  "label": "Contact Phone"
+  "label": "Contact Name", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "contact_email", 
   "fieldtype": "Data", 
   "in_list_view": 1, 
-  "label": "Contact Email"
+  "label": "Contact Email", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
@@ -90,14 +86,34 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "account_description", 
-  "fieldtype": "Small Text", 
-  "label": "Account Description"
+  "fieldname": "contact_phone", 
+  "fieldtype": "Data", 
+  "label": "Contact Phone"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "column_break_7", 
   "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "account_description", 
+  "fieldtype": "Data", 
+  "label": "Account Description"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "image", 
+  "fieldtype": "Select", 
+  "label": "Image", 
+  "options": "attach_files:"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "image_view", 
+  "fieldtype": "Image", 
+  "label": "Image View", 
+  "options": "image"
  }, 
  {
   "doctype": "DocField", 
@@ -112,6 +128,7 @@
   "doctype": "DocField", 
   "fieldname": "speed_units", 
   "fieldtype": "Select", 
+  "hidden": 1, 
   "label": "Speed Units", 
   "options": "mph\nkm/h\nknots"
  }, 
@@ -119,6 +136,7 @@
   "doctype": "DocField", 
   "fieldname": "distance_units", 
   "fieldtype": "Select", 
+  "hidden": 1, 
   "label": "Distance Units", 
   "options": "Miles\nKm\nNm"
  }, 
@@ -126,6 +144,7 @@
   "doctype": "DocField", 
   "fieldname": "volume_units", 
   "fieldtype": "Select", 
+  "hidden": 1, 
   "label": "Volume Units", 
   "options": "gal\nLiter\nIG\nft^3"
  }, 
@@ -133,6 +152,7 @@
   "doctype": "DocField", 
   "fieldname": "economy_units", 
   "fieldtype": "Select", 
+  "hidden": 1, 
   "label": "Economy Units", 
   "options": "mpg\nkm/L\nkpg\nL/100km"
  }, 
@@ -140,6 +160,7 @@
   "doctype": "DocField", 
   "fieldname": "pressure_units", 
   "fieldtype": "Select", 
+  "hidden": 1, 
   "label": "Pressure Units", 
   "options": "kPa\npsi\nmmHg\nbar"
  }, 
@@ -147,6 +168,7 @@
   "doctype": "DocField", 
   "fieldname": "temperature_units", 
   "fieldtype": "Select", 
+  "hidden": 1, 
   "label": "Temperature Units", 
   "options": "F\nC"
  }, 
@@ -154,6 +176,7 @@
   "doctype": "DocField", 
   "fieldname": "latitude_longitude_format", 
   "fieldtype": "Select", 
+  "hidden": 1, 
   "label": "Latitude/Longitude Format", 
   "options": "Degrees\nDeg:Min:Sec\nDeg:Min"
  }, 

@@ -14,9 +14,9 @@ class DocType:
 	def on_update(self):
 		self.doc.account_id=self.doc.account_id.lower()
 		self.doc.device_id=self.doc.device_id.lower()
-		self.doc.vehicle_id=self.doc.vehicle_id.lower()
-		self.doc.unique_id=self.doc.unique_id.lower()
-		self.doc.driver_id=self.doc.driver_id.lower()
+		#self.doc.vehicle_id=self.doc.vehicle_id.lower()
+		#self.doc.unique_id=self.doc.unique_id.lower()
+		#self.doc.driver_id=self.doc.driver_id.lower()
 		self.doc.group_membership=self.doc.group_membership.lower()
 		self.doc.name=self.doc.name.lower()
 
