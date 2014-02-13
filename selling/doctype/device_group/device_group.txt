@@ -2,7 +2,7 @@
  {
   "creation": "2014-01-22 12:43:28", 
   "docstatus": 0, 
-  "modified": "2014-02-08 14:49:13", 
+  "modified": "2014-02-12 14:26:02", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -45,16 +45,22 @@
  {
   "doctype": "DocField", 
   "fieldname": "account_id", 
+  "fieldtype": "Data", 
+  "label": "Frachise Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "region", 
   "fieldtype": "Link", 
-  "label": "Frachise Name", 
-  "options": "Franchise"
+  "label": "Region", 
+  "options": "Territory"
  }, 
  {
   "default": "false", 
   "doctype": "DocField", 
   "fieldname": "flag", 
   "fieldtype": "Data", 
-  "hidden": 0, 
+  "hidden": 1, 
   "label": "Flag", 
   "read_only": 1
  }, 
@@ -70,7 +76,7 @@
  {
   "create": 1, 
   "doctype": "DocPerm", 
-  "match": "account_id", 
+  "match": "region", 
   "permlevel": 0, 
   "report": 1, 
   "role": "Franchise", 

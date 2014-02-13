@@ -24,9 +24,11 @@ class DocType:
 		self.doc.name=self.doc.name.lower()
 
 		self.doc.group_id=self.doc.name
-#		if self.doc.account_id:
+		#if self.doc.account_id:
+		#a=webnotes.conn.sql("select account_id from `tabFranchise`")
+		
 		qry= "insert into DeviceGroup (accountID,groupID) values ('"+cstr(self.doc.account_id)+"','"+cstr(self.doc.group_id)+"')"
 		webnotes.conn.sql(qry)
 		webnotes.errprint(qry)
-#		else:
-#			pass
+		#else:
+		#	pass

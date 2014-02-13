@@ -2,7 +2,7 @@
  {
   "creation": "2014-01-28 15:51:45", 
   "docstatus": 0, 
-  "modified": "2014-02-10 16:02:19", 
+  "modified": "2014-02-13 10:13:26",
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -42,11 +42,20 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "region", 
+  "fieldtype": "Link", 
+  "label": "Region", 
+  "options": "Territory", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "account_id", 
   "fieldtype": "Link", 
+  "hidden": 1, 
   "label": "Franchise Name", 
   "options": "Franchise", 
-  "reqd": 1
+  "reqd": 0
  }, 
  {
   "doctype": "DocField", 
@@ -180,7 +189,7 @@
  {
   "create": 1, 
   "doctype": "DocPerm", 
-  "match": "account_id", 
+  "match": "region", 
   "permlevel": 0, 
   "report": 1, 
   "role": "Franchise", 

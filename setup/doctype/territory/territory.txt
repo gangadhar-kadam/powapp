@@ -2,7 +2,7 @@
  {
   "creation": "2013-01-10 16:34:24", 
   "docstatus": 0, 
-  "modified": "2013-11-02 16:59:08", 
+  "modified": "2014-02-12 15:08:35", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -17,7 +17,7 @@
   "module": "Setup", 
   "name": "__common__", 
   "name_case": "Title Case", 
-  "read_only": 1, 
+  "read_only": 0, 
   "search_fields": "name,parent_territory,territory_manager"
  }, 
  {
@@ -29,16 +29,13 @@
   "permlevel": 0
  }, 
  {
-  "amend": 0, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Territory", 
   "parentfield": "permissions", 
   "parenttype": "DocType", 
   "permlevel": 0, 
-  "read": 1, 
-  "report": 1, 
-  "submit": 0
+  "read": 1
  }, 
  {
   "doctype": "DocType", 
@@ -172,24 +169,39 @@
   "options": "Budget Distribution"
  }, 
  {
+  "amend": 0, 
   "cancel": 0, 
   "create": 0, 
   "doctype": "DocPerm", 
+  "report": 1, 
   "role": "Sales Manager", 
+  "submit": 0, 
   "write": 0
  }, 
  {
+  "amend": 0, 
   "cancel": 0, 
   "create": 0, 
   "doctype": "DocPerm", 
+  "report": 1, 
   "role": "Sales User", 
+  "submit": 0, 
   "write": 0
  }, 
  {
+  "amend": 0, 
   "cancel": 1, 
   "create": 1, 
   "doctype": "DocPerm", 
+  "report": 1, 
   "role": "Sales Master Manager", 
+  "submit": 0, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "match": "territory_name", 
+  "role": "Franchise", 
   "write": 1
  }
 ]

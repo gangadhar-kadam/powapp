@@ -1,13 +1,13 @@
 [
  {
   "creation": "2014-01-28 15:32:10", 
-  "docstatus": 0, 
-  "modified": "2014-02-10 17:46:02", 
+  "docstatus": 0,
+  "modified": "2014-02-12 15:07:09", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
  {
-  "autoname": "field:account_id", 
+  "autoname": "FR.#######", 
   "doctype": "DocType", 
   "document_type": "Master", 
   "module": "Selling", 
@@ -37,7 +37,7 @@
   "doctype": "DocField", 
   "fieldname": "f_information", 
   "fieldtype": "Section Break", 
-  "label": "Franchise Information"
+  "label": "Franchise Details"
  }, 
  {
   "default": "1", 
@@ -96,6 +96,13 @@
   "fieldtype": "Column Break"
  }, 
  {
+  "doctype": "DocField",
+  "fieldname": "region", 
+  "fieldtype": "Link", 
+  "label": "Region", 
+  "options": "Territory"
+ }, 
+ {
   "doctype": "DocField", 
   "fieldname": "account_description", 
   "fieldtype": "Data", 
@@ -129,8 +136,7 @@
   "fieldname": "speed_units", 
   "fieldtype": "Select", 
   "hidden": 1, 
-  "label": "Speed Units", 
-  "options": "mph\nkm/h\nknots"
+  "label": "Speed Units"
  }, 
  {
   "doctype": "DocField", 
@@ -181,6 +187,66 @@
   "options": "Degrees\nDeg:Min:Sec\nDeg:Min"
  }, 
  {
+  "doctype": "DocField", 
+  "fieldname": "user_details", 
+  "fieldtype": "Section Break", 
+  "label": "User Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "user_id", 
+  "fieldtype": "Data", 
+  "label": "User Id", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "password1", 
+  "fieldtype": "Password", 
+  "hidden": 0, 
+  "label": "Password", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_27", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "authorized_group", 
+  "fieldtype": "Link", 
+  "label": "Authorized Group", 
+  "options": "Device Group", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "user_description", 
+  "fieldtype": "Data", 
+  "label": "User Description"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "device_details", 
+  "fieldtype": "Section Break", 
+  "label": "Device Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "device_id", 
+  "fieldtype": "Data", 
+  "label": "Device Id", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "imei", 
+  "fieldtype": "Data", 
+  "label": "IMEI / ESN Number", 
+  "reqd": 1
+ }, 
+ {
   "cancel": 1, 
   "create": 1, 
   "doctype": "DocPerm", 
@@ -192,7 +258,7 @@
  {
   "create": 0, 
   "doctype": "DocPerm", 
-  "match": "account_id", 
+  "match": "region", 
   "permlevel": 0, 
   "report": 1, 
   "role": "Franchise", 

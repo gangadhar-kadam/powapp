@@ -2,7 +2,7 @@
  {
   "creation": "2014-02-05 19:24:56", 
   "docstatus": 0, 
-  "modified": "2014-02-08 15:09:55", 
+  "modified": "2014-02-13 10:14:05", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -36,19 +36,35 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "regions", 
+  "fieldtype": "Link", 
+  "label": "Region", 
+  "options": "Territory", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "visiting_frequency", 
   "fieldtype": "Select", 
-  "label": "Visiting Frequency", 
-  "options": "\nDaily\nWeekely\n15 Days", 
+  "label": "Frequency Type", 
+  "options": "\nWeekely\nForth Night\nOne Month", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "frequency", 
+  "fieldtype": "Int", 
+  "label": "Frequency", 
   "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "route", 
   "fieldtype": "Link", 
+  "hidden": 1, 
   "label": "Route", 
   "options": "Route Master", 
-  "reqd": 1
+  "reqd": 0
  }, 
  {
   "doctype": "DocField", 
@@ -59,15 +75,9 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "regions", 
-  "fieldtype": "Data", 
-  "label": "Regions"
- }, 
- {
-  "doctype": "DocField", 
   "fieldname": "account_id", 
   "fieldtype": "Link", 
-  "hidden": 0, 
+  "hidden": 1, 
   "label": "Franchise Name", 
   "options": "Franchise", 
   "reqd": 0
@@ -88,7 +98,7 @@
   "label": "Device Id"
  }, 
  {
-  "depends_on": "eval:doc.visiting_frequency!=null && doc.route!=null && doc.start_date!=null", 
+  "depends_on": "eval:doc.visiting_frequency!=null && doc.frequency!=null && doc.start_date!=null && doc.regions", 
   "doctype": "DocField", 
   "fieldname": "generate", 
   "fieldtype": "Button", 
@@ -106,7 +116,7 @@
  {
   "create": 1, 
   "doctype": "DocPerm", 
-  "match": "account_id", 
+  "match": "regions", 
   "permlevel": 0, 
   "role": "Franchise", 
   "write": 1

@@ -1,0 +1,21 @@
+[
+ {
+  "creation": "2014-02-11 16:18:12", 
+  "docstatus": 0, 
+  "modified": "2014-02-11 16:18:12", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "Report", 
+  "is_standard": "Yes", 
+  "name": "__common__", 
+  "ref_doctype": "Sub Franchise Visiting Schedule", 
+  "report_name": "Sub-Franchise Schedule Details", 
+  "report_type": "Script Report"
+ }, 
+ {
+  "doctype": "Report", 
+  "name": "Sub-Franchise Schedule Details"
+ }
+]
