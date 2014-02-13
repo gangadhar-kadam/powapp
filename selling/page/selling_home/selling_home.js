@@ -42,21 +42,21 @@ wn.module_page["Selling"] = [
                                 description: wn._("Confirmed orders from Customers."),
                                 doctype:"Franchise"
                         },
-			{
-                                label: wn._("User"),
-                                description: wn._("Confirmed orders from Customers."),
-                                doctype:"User"
-                        },
-			{
-                                label: wn._("Vehicle"),
-                                description: wn._("Confirmed orders from Customers."),
-                                doctype:"Vehicle"
-                        },
-			{
-                                label: wn._("Driver"),
-                                description: wn._("Confirmed orders from Customers."),
-                                doctype:"Driver"
-                        },
+//			{
+//                              label: wn._("User"),
+//                              description: wn._("Confirmed orders from Customers."),
+//                              doctype:"User"
+//                      },
+//			{
+//                              label: wn._("Vehicle"),
+//                              description: wn._("Confirmed orders from Customers."),
+//                              doctype:"Vehicle"
+//                        },
+//			{
+//                              label: wn._("Driver"),
+//                                description: wn._("Confirmed orders from Customers."),
+//                              doctype:"Driver"
+//                      },
 			{
                                 label: wn._("Franchise Visiting Schedule"),
                                 description: wn._("Confirmed orders from Customers."),
@@ -67,21 +67,21 @@ wn.module_page["Selling"] = [
                                 description: wn._("Confirmed orders from Customers."),
                                 doctype:"Sub Franchise Visiting Schedule"
                         },
-			{
-                                label: wn._("Route Master"),
-                                description: wn._("Confirmed orders from Customers."),
-                                doctype:"Route Master"
-                        },
+//			{
+//                              label: wn._("Route Master"),
+//                              description: wn._("Confirmed orders from Customers."),
+//                              doctype:"Route Master"
+//                      },
 			{
                                 label: wn._("Sub Franchise"),
                                 description: wn._("Confirmed orders from Customers."),
                                 doctype:"Sub Franchise"
                         },
-			{
-                                label: wn._("Device Group"),
-                                description: wn._("Confirmed orders from Customers."),
-                                doctype:"Device Group"
-                        },
+//			{
+//                              label: wn._("Device Group"),
+//                              description: wn._("Confirmed orders from Customers."),
+//                              doctype:"Device Group"
+//                      },
 
 
 		]
@@ -228,15 +228,20 @@ wn.module_page["Selling"] = [
 		right: true,
 		icon: "icon-list",
 		items: [
-			{
-     				"label":wn._("Sub Franchise Visiting Schedule"),
-    				route: "query-report/Sub Franchise Visiting Schedule",
-     				doctype:"Sub Franchise Visiting Schedule"
-     			},
+//			{
+//   				"label":wn._("Sub Franchise Visiting Schedule"),
+//				route: "query-report/Sub Franchise Visiting Schedule",
+//				doctype:"Sub Franchise Visiting Schedule"
+//			},
                         {
                                 "label":wn._("Vehicle Tracking Details"),
                                 route: "query-report/Vehicle Tracking Details",
                                 doctype:"Franchise"
+                        },
+			{
+                                "label":wn._("Sub-Franchise Schedule Details"),
+                                route: "query-report/Sub-Franchise Schedule Details",
+                                doctype:"Sub Franchise Visiting Schedule"
                         },
 
 //			{

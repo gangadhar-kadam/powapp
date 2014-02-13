@@ -2,7 +2,7 @@
  {
   "creation": "2014-02-07 17:33:25", 
   "docstatus": 0, 
-  "modified": "2014-02-07 18:25:22", 
+  "modified": "2014-02-12 17:08:32", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -40,9 +40,10 @@
   "doctype": "DocField", 
   "fieldname": "account_id", 
   "fieldtype": "Link", 
+  "hidden": 1, 
   "label": "account id", 
   "options": "Franchise", 
-  "reqd": 1
+  "reqd": 0
  }, 
  {
   "doctype": "DocField", 
@@ -60,6 +61,13 @@
   "fieldname": "track_battery_location", 
   "fieldtype": "Button", 
   "label": "Track battery location"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "customer_data", 
+  "fieldtype": "Small Text", 
+  "label": "Customer Data", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocPerm", 

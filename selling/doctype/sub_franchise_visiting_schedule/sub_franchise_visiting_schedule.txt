@@ -1,9 +1,8 @@
 [
  {
   "creation": "2014-02-05 13:33:16", 
-  "docstatus": 0,
-  "modified": "2014-02-08 14:51:04", 
-  "modified": "2014-02-08 12:47:02", 
+  "docstatus": 0, 
+  "modified": "2014-02-13 10:49:57", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -38,15 +37,47 @@
  {
   "doctype": "DocField", 
   "fieldname": "account_id", 
-  "fieldtype": "Link", 
-  "label": "Franchise Name", 
-  "options": "Franchise"
+  "fieldtype": "Data", 
+  "label": "Franchise Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "visiting_date", 
+  "fieldtype": "Date", 
+  "hidden": 1, 
+  "label": "Visiting Date"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "region", 
+  "fieldtype": "Data", 
+  "hidden": 0, 
+  "label": "Region"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "f_type", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Frequency Type"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "frequency", 
+  "fieldtype": "Int", 
+  "hidden": 1, 
+  "label": "Frequency"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "device_id", 
   "fieldtype": "Data", 
   "label": "Device Id"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_5", 
+  "fieldtype": "Column Break"
  }, 
  {
   "doctype": "DocField", 
@@ -57,19 +88,9 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "visiting_date", 
-  "fieldtype": "Date", 
-  "label": "Visiting Date"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "column_break_5", 
-  "fieldtype": "Column Break"
- }, 
- {
-  "doctype": "DocField", 
   "fieldname": "route", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Route"
  }, 
  {
@@ -90,17 +111,11 @@
  {
   "create": 1, 
   "doctype": "DocPerm", 
-  "match": "account_id", 
+  "match": "region", 
   "permlevel": 0, 
   "report": 1, 
   "role": "Franchise", 
   "write": 1
- }, 
- {
-  "doctype": "DocPerm", 
-  "match": "sf_name", 
-  "permlevel": 0, 
-  "role": "Sub-Franchise"
  }, 
  {
   "cancel": 1, 

@@ -197,36 +197,21 @@ def get_details():
 @webnotes.whitelist()
 def get_detail1(serial_no=None):
 	if serial_no:
+		webnotes.errprint(serial_no)
 		txt = serial_no
-		if webnotes.session['user'] in ['Administrator','administrator']:
-			warehouse = webnotes.conn.sql(""" select s.warehouse 
-					from `tabStock Ledger Entry` s, `tabStock Entry` ste 
-					where s.serial_no like '%(serial_no)s'
-						and s.voucher_no=ste.name 
-						and s.actual_qty > 0 
-						and ste.purpose='Material Transfer' """%{'serial_no': "%%%s%%" % txt},as_list=1,debug=1)
-			if warehouse:
-				if warehouse=='Finished Goods - P':
-					return "adm"
-				else:
-					device_id = webnotes.conn.sql("""select name from tabVehicle where account_id = '%s'"""%warehouse[0][0],as_list=1)
-					rs="select name, password from tabFranchise where name='"+warehouse[0][0]+"'"
-					res=webnotes.conn.sql(rs)
-					return res, device_id[0][0]
+		data=webnotes.conn.sql("select case when status='Delivered' then customer else warehouse end as data,status from `tabSerial No` where name='%s'"%(txt),as_dict=1)
+		webnotes.errprint(data)
+		if data :
+			if data[0]['status']=='Delivered':
+				return 'customer',data[0]['data']
+			elif data[0]['status']=='Available' and data[0]['data']=='Finished Goods - P':
+				return 'admin',data[0]['data']
 			else:
-				return "Not"
-
-		else:
-			pr=webnotes.conn.sql("select account_id from tabProfile where name='"+webnotes.session['user']+"' and franchise_admin='1'")
-			if pr:
-				rs="select name, password from tabFranchise where name='"+pr[0][0]+"'"
-				res=webnotes.conn.sql(rs)
-				if res:
-					device_id = webnotes.conn.sql("""select name from tabVehicle where account_id = '%s'"""%pr[0][0],as_list=1)
-					return res , device_id[0][0]
-				else:
-					return "Not"
-			else:
-				return "Not"
-	else:
-		webnotes.msgprint("Please provide serial number",raise_exception=1)
+				
+				rs=webnotes.conn.sql("select name, password from tabFranchise where name='"+data[0]['data']+"'",as_list=1)
+				device_id = webnotes.conn.sql("""select name from tabVehicle where account_id = '%s'"""%data[0]['data'],as_list=1)
+           		return 'usr',rs,device_id[0][0]
+    		else:
+			return 'Not'
+	else :
+		return "Not"

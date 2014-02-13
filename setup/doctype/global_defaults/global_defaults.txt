@@ -2,7 +2,7 @@
  {
   "creation": "2013-05-02 17:53:24", 
   "docstatus": 0, 
-  "modified": "2013-10-23 18:06:04", 
+  "modified": "2014-02-12 14:28:04", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -46,6 +46,54 @@
  {
   "doctype": "DocType", 
   "name": "Global Defaults"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "units", 
+  "fieldtype": "Section Break", 
+  "label": "Units"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "speed_units", 
+  "fieldtype": "Select", 
+  "label": "Speed Units", 
+  "options": "mph\nkm/h\nknots"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "distance_units", 
+  "fieldtype": "Select", 
+  "label": "Distance Units", 
+  "options": "Miles\nKm\nNm"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "volume_units", 
+  "fieldtype": "Select", 
+  "label": "Volume Units", 
+  "options": "gal\nLiter\nIG\nft^3"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "economy_units", 
+  "fieldtype": "Select", 
+  "label": "Economy Units", 
+  "options": "mpg\nkm/L\nkpg\nL/100km"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "pressure_units", 
+  "fieldtype": "Select", 
+  "label": "Pressure Units", 
+  "options": "kPa\npsi\nmmHg\nbar"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature_units", 
+  "fieldtype": "Select", 
+  "label": "Temperature Units", 
+  "options": "F\nC"
  }, 
  {
   "doctype": "DocField", 

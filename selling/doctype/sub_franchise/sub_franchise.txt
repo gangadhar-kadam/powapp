@@ -2,7 +2,7 @@
  {
   "creation": "2014-01-28 15:51:45", 
   "docstatus": 0, 
-  "modified": "2014-02-08 14:51:32", 
+  "modified": "2014-02-13 10:13:26", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -36,11 +36,26 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "sub_franchise_details", 
+  "fieldtype": "Section Break", 
+  "label": "Sub-Franchise Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "region", 
+  "fieldtype": "Link", 
+  "label": "Region", 
+  "options": "Territory", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "account_id", 
   "fieldtype": "Link", 
+  "hidden": 1, 
   "label": "Franchise Name", 
   "options": "Franchise", 
-  "reqd": 1
+  "reqd": 0
  }, 
  {
   "doctype": "DocField", 
@@ -51,16 +66,23 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "column_break_4", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "lat", 
   "fieldtype": "Data", 
   "hidden": 0, 
-  "label": "Lat"
+  "label": "Lat", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "lon", 
   "fieldtype": "Data", 
-  "label": "lon"
+  "label": "lon", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -68,7 +90,32 @@
   "fieldtype": "Link", 
   "hidden": 1, 
   "label": "Customer Name", 
-  "options": "Customer"
+  "options": "Customer", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "contact_details", 
+  "fieldtype": "Section Break", 
+  "label": "Contact Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "c_name", 
+  "fieldtype": "Data", 
+  "label": "Contact Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "email", 
+  "fieldtype": "Data", 
+  "label": "Email"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "c_number", 
+  "fieldtype": "Data", 
+  "label": "Contact Number"
  }, 
  {
   "doctype": "DocField", 
@@ -113,30 +160,6 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "contact_details", 
-  "fieldtype": "Section Break", 
-  "label": "Contact Details"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "c_name", 
-  "fieldtype": "Data", 
-  "label": "Contact Name"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "email", 
-  "fieldtype": "Data", 
-  "label": "Email"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "c_number", 
-  "fieldtype": "Data", 
-  "label": "Contact Number"
- }, 
- {
-  "doctype": "DocField", 
   "fieldname": "map_details", 
   "fieldtype": "Section Break", 
   "label": "Map Details"
@@ -166,7 +189,7 @@
  {
   "create": 1, 
   "doctype": "DocPerm", 
-  "match": "account_id", 
+  "match": "region", 
   "permlevel": 0, 
   "report": 1, 
   "role": "Franchise", 
