@@ -7,16 +7,35 @@ wn.module_page["Selling"] = [
 		title: wn._("Documents"),
 		icon: "icon-copy",
 		items: [
-			{
+		{
 				label: wn._("Customer"),
-				description: wn._("Customer database."),
-				doctype:"Customer"
+				description: wn._("Customer Database."),
+				doctype:"Customer Details"
 			},
                         {
-                                label: wn._("Track battery location"),
-                                description: wn._("Track battery location"),
-                                doctype:"Track battery location"
+                                label: wn._("Track Battery Location"),
+                                description: wn._("Track Battery Location"),
+				route:"Form/Track battery location/Track battery location"
+//                                doctype:"Track battery location"
                         },
+			{
+                               "route":"Form/Tracking Frequency/Tracking Frequency",
+				"label":wn._("Tracking Frequency"),
+				"description":wn._("Control Tracking Settings"),
+				doctype: "Tracking Frequency"
+                        },
+
+                      /* {
+                                label: wn._("Customer"),
+                                description: wn._("Customer database."),
+                                doctype:"Customer"
+                        },*/
+
+
+
+
+
+
 //			{
 //				label: wn._("Lead"),
 //				description: wn._("Database of potential customers."),
@@ -33,15 +52,22 @@ wn.module_page["Selling"] = [
 //				doctype:"Quotation"
 //			},
 			{
-				label: wn._("Sales Order"),
-				description: wn._("Confirmed orders from Customers."),
-				doctype:"Sales Order"
+				label: wn._("Sales Invoice"),
+				description: wn._("Confirmed Orders From Customers."),
+				doctype:"Sales Invoice"
 			},
 			{
                                 label: wn._("Franchise"),
-                                description: wn._("Confirmed orders from Customers."),
+                                description: wn._("Confirmed Orders From Customers."),
                                 doctype:"Franchise"
                         },
+			{
+                                label: wn._("Packing Batteries"),
+                                description: wn._("Pack Battries."),
+                                doctype:"Packing items"
+
+                         },
+
 //			{
 //                              label: wn._("User"),
 //                              description: wn._("Confirmed orders from Customers."),
@@ -59,12 +85,12 @@ wn.module_page["Selling"] = [
 //                      },
 			{
                                 label: wn._("Franchise Visiting Schedule"),
-                                description: wn._("Confirmed orders from Customers."),
+                                description: wn._("Create Sub-franchise Visiting Schedule"),
                                 doctype:"Franchise Visiting Schedule"
                         },
 			{
                                 label: wn._("Sub Franchise Visiting Schedule"),
-                                description: wn._("Confirmed orders from Customers."),
+                                description: wn._("Sub Franchise Visited Details"),
                                 doctype:"Sub Franchise Visiting Schedule"
                         },
 //			{
@@ -74,9 +100,15 @@ wn.module_page["Selling"] = [
 //                      },
 			{
                                 label: wn._("Sub Franchise"),
-                                description: wn._("Confirmed orders from Customers."),
+                                description: wn._("Sub Franshise"),
                                 doctype:"Sub Franchise"
                         },
+//			{
+//                              label: wn._("Tracking Frequency"),
+//                              description: wn._("Confirmed orders from Customers."),
+//				route:"Form/Tracking Frequency/Tracking Frequency"
+//                                doctype:"Tracking Frequency"
+//                      },
 //			{
 //                              label: wn._("Device Group"),
 //                              description: wn._("Confirmed orders from Customers."),
@@ -102,7 +134,7 @@ wn.module_page["Selling"] = [
 //			},
 			{
 				label: wn._("Item"),
-				description: wn._("All Products or Services."),
+				description: wn._("All Products Or Services."),
 				doctype:"Item"
 			},
 		]
@@ -228,11 +260,11 @@ wn.module_page["Selling"] = [
 		right: true,
 		icon: "icon-list",
 		items: [
-//			{
-//   				"label":wn._("Sub Franchise Visiting Schedule"),
-//				route: "query-report/Sub Franchise Visiting Schedule",
-//				doctype:"Sub Franchise Visiting Schedule"
-//			},
+			/*{
+   				"label":wn._("Sub Franchise Visiting Schedule"),
+				route: "query-report/Sub Franchise Visiting Schedule",
+				doctype:"Sub Franchise Visiting Schedule"
+			},*/
                         {
                                 "label":wn._("Vehicle Tracking Details"),
                                 route: "query-report/Vehicle Tracking Details",
@@ -241,6 +273,12 @@ wn.module_page["Selling"] = [
 			{
                                 "label":wn._("Sub-Franchise Schedule Details"),
                                 route: "query-report/Sub-Franchise Schedule Details",
+                                doctype:"Sub Franchise Visiting Schedule"
+                        },
+
+			{
+                                "label":wn._("Vehicle Start Stop Report"),
+                                route: "query-report/Vehicle Start Stop Report",
                                 doctype:"Sub Franchise Visiting Schedule"
                         },
 

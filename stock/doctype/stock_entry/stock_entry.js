@@ -392,3 +392,14 @@ cur_frm.fields_dict.customer.get_query = function(doc, cdt, cdn) {
 cur_frm.fields_dict.supplier.get_query = function(doc, cdt, cdn) {
 	return{	query:"controllers.queries.supplier_query" }
 }
+
+cur_frm.cscript.fetch = function(doc, cdt, cdn) {
+	console.log("fetch");
+	var d = locals[cdt][cdn];
+	args = {
+		'item_code'			: d.item_code,
+		'fetch'			: d.fetch
+	};
+	return get_server_fields('get_batch_details', JSON.stringify(args), 
+		'mtn_details', doc, cdt, cdn, 1);
+}

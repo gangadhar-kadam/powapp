@@ -2,7 +2,7 @@
  {
   "creation": "2014-02-05 13:33:16", 
   "docstatus": 0, 
-  "modified": "2014-02-13 10:49:57", 
+  "modified": "2014-11-15 16:50:37", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -38,41 +38,56 @@
   "doctype": "DocField", 
   "fieldname": "account_id", 
   "fieldtype": "Data", 
-  "label": "Franchise Name"
+  "in_list_view": 1, 
+  "label": "Franchise Name", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sf_name", 
+  "fieldtype": "Link", 
+  "label": "Sub Franchise Name", 
+  "options": "Sub Franchise", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "visiting_date", 
   "fieldtype": "Date", 
   "hidden": 1, 
-  "label": "Visiting Date"
+  "label": "Visiting Date", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "region", 
   "fieldtype": "Data", 
   "hidden": 0, 
-  "label": "Region"
+  "label": "Region", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "f_type", 
   "fieldtype": "Data", 
   "hidden": 1, 
-  "label": "Frequency Type"
+  "label": "Frequency Type", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "frequency", 
   "fieldtype": "Int", 
   "hidden": 1, 
-  "label": "Frequency"
+  "label": "Frequency", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "device_id", 
   "fieldtype": "Data", 
-  "label": "Device Id"
+  "label": "Device Id", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -81,17 +96,11 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "sf_name", 
-  "fieldtype": "Link", 
-  "label": "Sub Franchise Name", 
-  "options": "Sub Franchise"
- }, 
- {
-  "doctype": "DocField", 
   "fieldname": "route", 
   "fieldtype": "Data", 
   "hidden": 1, 
-  "label": "Route"
+  "label": "Route", 
+  "read_only": 1
  }, 
  {
   "default": "No", 
@@ -99,17 +108,39 @@
   "fieldname": "visited", 
   "fieldtype": "Select", 
   "label": "Visited", 
-  "options": "Yes\nNo"
+  "options": "Yes\nNo", 
+  "read_only": 1
  }, 
  {
   "depends_on": "eval:doc.visited!='Yes'", 
   "doctype": "DocField", 
   "fieldname": "reason", 
-  "fieldtype": "Small Text", 
+  "fieldtype": "Data", 
   "label": "Reason"
  }, 
  {
-  "create": 1, 
+  "doctype": "DocField", 
+  "fieldname": "weekly", 
+  "fieldtype": "Data", 
+  "label": "Weekly", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "forth_nightly", 
+  "fieldtype": "Data", 
+  "label": "Fortnightly", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "monthly", 
+  "fieldtype": "Data", 
+  "label": "Monthly", 
+  "read_only": 1
+ }, 
+ {
+  "create": 0, 
   "doctype": "DocPerm", 
   "match": "region", 
   "permlevel": 0, 
@@ -118,18 +149,18 @@
   "write": 1
  }, 
  {
-  "cancel": 1, 
-  "create": 1, 
+  "cancel": 0, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "permlevel": 0, 
   "report": 1, 
-  "role": "Administrator", 
+  "role": "System Manager", 
   "write": 1
  }, 
  {
   "doctype": "DocPerm", 
   "permlevel": 1, 
-  "role": "Administrator", 
+  "role": "System Manager", 
   "write": 1
  }, 
  {

@@ -1,0 +1,103 @@
+[
+ {
+  "creation": "2014-02-26 19:03:08", 
+  "docstatus": 0, 
+  "modified": "2014-09-26 15:22:43", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Customer Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Customer Details", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "All", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Customer Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "customer_details", 
+  "fieldtype": "Section Break", 
+  "label": "Customer Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "customer_name", 
+  "fieldtype": "Data", 
+  "label": "Customer Name", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "phone_number", 
+  "fieldtype": "Data", 
+  "label": "Phone Number", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "col1", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "customer_email", 
+  "fieldtype": "Data", 
+  "label": "Customer Email"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "region", 
+  "fieldtype": "Link", 
+  "label": "Region", 
+  "options": "Territory"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sub_franchise", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Sub franchise", 
+  "options": "Sub Franchise"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "data", 
+  "fieldtype": "Section Break", 
+  "label": "Data"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "customer_data", 
+  "fieldtype": "Table", 
+  "label": "Customer Data", 
+  "options": "Customer Data"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

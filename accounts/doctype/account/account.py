@@ -40,7 +40,8 @@ class DocType:
 		"""Remind to add master name"""
 		if self.doc.master_type in ('Customer', 'Supplier') or self.doc.account_type == "Warehouse":
 			if not self.doc.master_name:
-				msgprint(_("Please enter Master Name once the account is created."))
+				pass
+				#msgprint(_("Please enter Master Name once the account is created."))
 			elif not webnotes.conn.exists(self.doc.master_type or self.doc.account_type, 
 					self.doc.master_name):
 				webnotes.throw(_("Invalid Master Name"))

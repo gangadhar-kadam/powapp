@@ -14,7 +14,7 @@ def execute(filters=None):
         return columns, data
 
 def get_columns():
-        return ["Freanchise:Link/Franchise:130", "Device ID:data:100", "Sub Franchise:Link/Sub Franchise:120","Sheduled Visting Date:date:150","Visted(Yes/No):data:120","Vistited Date Time:datetime:150","Reason:data:300"]
+        return ["Franchise:Link/Franchise:130", "Device ID:data:100", "Sub-Franchise:Link/Sub Franchise:120","Scheduled Visiting Date:date:150","Visited (Yes/No):data:120","Visited Date Time:datetime:150","Reason:data:300"]
 
 def get_tracking_details(filters):
         #conditions = get_conditions(filters)

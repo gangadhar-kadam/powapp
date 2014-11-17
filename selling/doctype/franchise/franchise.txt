@@ -1,8 +1,8 @@
 [
  {
   "creation": "2014-01-28 15:32:10", 
-  "docstatus": 0,
-  "modified": "2014-02-12 15:07:09", 
+  "docstatus": 0, 
+  "modified": "2014-11-14 18:32:45", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -96,16 +96,19 @@
   "fieldtype": "Column Break"
  }, 
  {
-  "doctype": "DocField",
+  "doctype": "DocField", 
   "fieldname": "region", 
   "fieldtype": "Link", 
+  "in_list_view": 1, 
   "label": "Region", 
-  "options": "Territory"
+  "options": "Territory", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "account_description", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Account Description"
  }, 
  {
@@ -215,15 +218,16 @@
  {
   "doctype": "DocField", 
   "fieldname": "authorized_group", 
-  "fieldtype": "Link", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Authorized Group", 
-  "options": "Device Group", 
-  "reqd": 1
+  "reqd": 0
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "user_description", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "User Description"
  }, 
  {
@@ -233,18 +237,31 @@
   "label": "Device Details"
  }, 
  {
+  "default": "1", 
+  "doctype": "DocField", 
+  "fieldname": "enabled", 
+  "fieldtype": "Check", 
+  "label": "Enable"
+ }, 
+ {
   "doctype": "DocField", 
   "fieldname": "device_id", 
   "fieldtype": "Data", 
-  "label": "Device Id", 
+  "label": "Device Id (IMEI Number)", 
   "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_31", 
+  "fieldtype": "Column Break"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "imei", 
   "fieldtype": "Data", 
-  "label": "IMEI / ESN Number", 
-  "reqd": 1
+  "hidden": 1, 
+  "label": "IMEI / ESN Number ", 
+  "reqd": 0
  }, 
  {
   "cancel": 1, 
@@ -274,5 +291,18 @@
   "doctype": "DocPerm", 
   "permlevel": 1, 
   "role": "Franchise"
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "role": "System Manager", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 1, 
+  "role": "System Manager", 
+  "write": 1
  }
 ]

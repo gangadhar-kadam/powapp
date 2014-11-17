@@ -2,13 +2,13 @@
  {
   "creation": "2013-05-24 19:29:05", 
   "docstatus": 0, 
-  "modified": "2013-11-18 15:16:50", 
+  "modified": "2014-11-14 12:22:56", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
  {
-  "allow_attach": 1, 
-  "allow_import": 1, 
+  "allow_attach": 0, 
+  "allow_import": 0, 
   "autoname": "naming_series:", 
   "default_print_format": "Standard", 
   "doctype": "DocType", 
@@ -17,16 +17,15 @@
   "is_submittable": 1, 
   "module": "Accounts", 
   "name": "__common__", 
-  "read_only_onload": 1, 
-  "search_fields": "posting_date, due_date, debit_to, fiscal_year, grand_total, outstanding_amount"
+  "read_only_onload": 0, 
+  "search_fields": "posting_date, due_date"
  }, 
  {
   "doctype": "DocField", 
   "name": "__common__", 
   "parent": "Sales Invoice", 
   "parentfield": "fields", 
-  "parenttype": "DocType", 
-  "permlevel": 0
+  "parenttype": "DocType"
  }, 
  {
   "doctype": "DocPerm", 
@@ -47,7 +46,8 @@
   "fieldname": "customer_section", 
   "fieldtype": "Section Break", 
   "label": "Customer", 
-  "options": "icon-user"
+  "options": "icon-user", 
+  "permlevel": 0
  }, 
  {
   "doctype": "DocField", 
@@ -58,6 +58,7 @@
   "oldfieldname": "naming_series", 
   "oldfieldtype": "Select", 
   "options": "INV\nINV/10-11/", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "reqd": 1
@@ -72,6 +73,7 @@
   "oldfieldname": "customer", 
   "oldfieldtype": "Link", 
   "options": "Customer", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -85,7 +87,17 @@
   "label": "Name", 
   "oldfieldname": "customer_name", 
   "oldfieldtype": "Data", 
+  "permlevel": 0, 
   "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "region", 
+  "fieldtype": "Link", 
+  "label": "Region", 
+  "options": "Territory", 
+  "permlevel": 0, 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
@@ -93,6 +105,7 @@
   "fieldtype": "Small Text", 
   "hidden": 1, 
   "label": "Address", 
+  "permlevel": 0, 
   "read_only": 1
  }, 
  {
@@ -101,6 +114,7 @@
   "fieldtype": "Small Text", 
   "hidden": 1, 
   "label": "Contact", 
+  "permlevel": 0, 
   "read_only": 1
  }, 
  {
@@ -109,6 +123,7 @@
   "fieldtype": "Text", 
   "hidden": 1, 
   "label": "Mobile No", 
+  "permlevel": 0, 
   "read_only": 1
  }, 
  {
@@ -117,6 +132,7 @@
   "fieldtype": "Text", 
   "hidden": 1, 
   "label": "Contact Email", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 1
  }, 
@@ -125,6 +141,7 @@
   "fieldname": "column_break1", 
   "fieldtype": "Column Break", 
   "oldfieldtype": "Column Break", 
+  "permlevel": 0, 
   "read_only": 0
  }, 
  {
@@ -134,6 +151,7 @@
   "label": "Is POS", 
   "oldfieldname": "is_pos", 
   "oldfieldtype": "Check", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -146,6 +164,7 @@
   "oldfieldname": "amended_from", 
   "oldfieldtype": "Link", 
   "options": "Sales Invoice", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 1
  }, 
@@ -158,6 +177,7 @@
   "oldfieldname": "company", 
   "oldfieldtype": "Link", 
   "options": "Company", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "reqd": 1, 
@@ -173,6 +193,7 @@
   "no_copy": 1, 
   "oldfieldname": "posting_date", 
   "oldfieldtype": "Date", 
+  "permlevel": 0, 
   "print_hide": 0, 
   "read_only": 0, 
   "reqd": 1, 
@@ -187,6 +208,7 @@
   "no_copy": 1, 
   "oldfieldname": "due_date", 
   "oldfieldtype": "Date", 
+  "permlevel": 0, 
   "read_only": 0, 
   "reqd": 1, 
   "search_index": 0
@@ -195,22 +217,27 @@
   "doctype": "DocField", 
   "fieldname": "mode_of_payment", 
   "fieldtype": "Select", 
+  "hidden": 1, 
   "label": "Mode of Payment", 
   "no_copy": 0, 
   "oldfieldname": "mode_of_payment", 
   "oldfieldtype": "Select", 
   "options": "link:Mode of Payment", 
+  "permlevel": 0, 
   "read_only": 0
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "currency_section", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "Currency and Price List", 
   "options": "icon-tag", 
+  "permlevel": 0, 
   "read_only": 0
  }, 
  {
+  "default": "INR", 
   "doctype": "DocField", 
   "fieldname": "currency", 
   "fieldtype": "Link", 
@@ -218,11 +245,13 @@
   "oldfieldname": "currency", 
   "oldfieldtype": "Select", 
   "options": "Currency", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "reqd": 1
  }, 
  {
+  "default": "1", 
   "description": "Rate at which Customer Currency is converted to customer's base currency", 
   "doctype": "DocField", 
   "fieldname": "conversion_rate", 
@@ -230,6 +259,7 @@
   "label": "Exchange Rate", 
   "oldfieldname": "conversion_rate", 
   "oldfieldtype": "Currency", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "reqd": 1
@@ -238,6 +268,7 @@
   "doctype": "DocField", 
   "fieldname": "column_break2", 
   "fieldtype": "Column Break", 
+  "permlevel": 0, 
   "read_only": 0, 
   "width": "50%"
  }, 
@@ -249,6 +280,7 @@
   "oldfieldname": "price_list_name", 
   "oldfieldtype": "Select", 
   "options": "Price List", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "reqd": 1
@@ -259,17 +291,20 @@
   "fieldtype": "Link", 
   "label": "Price List Currency", 
   "options": "Currency", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 1, 
   "reqd": 1
  }, 
  {
+  "default": "1.00", 
   "description": "Rate at which Price list currency is converted to customer's base currency", 
   "doctype": "DocField", 
   "fieldname": "plc_conversion_rate", 
   "fieldtype": "Float", 
   "label": "Price List Exchange Rate", 
   "no_copy": 0, 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "reqd": 1
@@ -281,15 +316,18 @@
   "label": "Items", 
   "oldfieldtype": "Section Break", 
   "options": "icon-shopping-cart", 
+  "permlevel": 0, 
   "read_only": 0
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "update_stock", 
   "fieldtype": "Check", 
+  "hidden": 1, 
   "label": "Update Stock", 
   "oldfieldname": "update_stock", 
   "oldfieldtype": "Check", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -302,6 +340,7 @@
   "oldfieldname": "entries", 
   "oldfieldtype": "Table", 
   "options": "Sales Invoice Item", 
+  "permlevel": 0, 
   "read_only": 0, 
   "reqd": 1
  }, 
@@ -311,6 +350,7 @@
   "fieldtype": "Section Break", 
   "label": "Packing List", 
   "options": "icon-suitcase", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -320,6 +360,7 @@
   "fieldtype": "Table", 
   "label": "Packing Details", 
   "options": "Packed Item", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -328,13 +369,15 @@
   "fieldname": "sales_bom_help", 
   "fieldtype": "HTML", 
   "label": "Sales BOM Help", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "section_break_30", 
-  "fieldtype": "Section Break"
+  "fieldtype": "Section Break", 
+  "permlevel": 0
  }, 
  {
   "doctype": "DocField", 
@@ -342,13 +385,15 @@
   "fieldtype": "Currency", 
   "label": "Net Total", 
   "options": "currency", 
+  "permlevel": 0, 
   "print_hide": 0, 
   "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "column_break_32", 
-  "fieldtype": "Column Break"
+  "fieldtype": "Column Break", 
+  "permlevel": 0
  }, 
  {
   "doctype": "DocField", 
@@ -358,6 +403,7 @@
   "oldfieldname": "net_total", 
   "oldfieldtype": "Currency", 
   "options": "Company:company:default_currency", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 1, 
   "reqd": 1
@@ -366,9 +412,11 @@
   "doctype": "DocField", 
   "fieldname": "taxes", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "Taxes and Charges", 
   "oldfieldtype": "Section Break", 
   "options": "icon-money", 
+  "permlevel": 0, 
   "read_only": 0
  }, 
  {
@@ -379,13 +427,15 @@
   "oldfieldname": "charge", 
   "oldfieldtype": "Link", 
   "options": "Sales Taxes and Charges Master", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "column_break_38", 
-  "fieldtype": "Column Break"
+  "fieldtype": "Column Break", 
+  "permlevel": 0
  }, 
  {
   "doctype": "DocField", 
@@ -394,23 +444,27 @@
   "label": "Shipping Rule", 
   "oldfieldtype": "Button", 
   "options": "Shipping Rule", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "section_break_40", 
-  "fieldtype": "Section Break"
+  "fieldtype": "Section Break", 
+  "permlevel": 0
  }, 
  {
   "allow_on_submit": 1, 
   "doctype": "DocField", 
   "fieldname": "other_charges", 
   "fieldtype": "Table", 
+  "hidden": 1, 
   "label": "Sales Taxes and Charges", 
   "oldfieldname": "other_charges", 
   "oldfieldtype": "Table", 
   "options": "Sales Taxes and Charges", 
+  "permlevel": 0, 
   "read_only": 0
  }, 
  {
@@ -419,13 +473,15 @@
   "fieldtype": "HTML", 
   "label": "Taxes and Charges Calculation", 
   "oldfieldtype": "HTML", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "section_break_43", 
-  "fieldtype": "Section Break"
+  "fieldtype": "Section Break", 
+  "permlevel": 0
  }, 
  {
   "doctype": "DocField", 
@@ -433,22 +489,26 @@
   "fieldtype": "Currency", 
   "label": "Total Taxes and Charges", 
   "options": "currency", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "column_break_45", 
-  "fieldtype": "Column Break"
+  "fieldtype": "Column Break", 
+  "permlevel": 0
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "other_charges_total", 
   "fieldtype": "Currency", 
+  "hidden": 1, 
   "label": "Total Taxes and Charges (Company Currency)", 
   "oldfieldname": "other_charges_total", 
   "oldfieldtype": "Currency", 
   "options": "Company:company:default_currency", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 1
  }, 
@@ -456,9 +516,11 @@
   "doctype": "DocField", 
   "fieldname": "totals", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "Totals", 
   "oldfieldtype": "Section Break", 
   "options": "icon-money", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -471,6 +533,7 @@
   "oldfieldname": "grand_total_export", 
   "oldfieldtype": "Currency", 
   "options": "currency", 
+  "permlevel": 0, 
   "print_hide": 0, 
   "read_only": 1, 
   "reqd": 1
@@ -483,6 +546,7 @@
   "oldfieldname": "rounded_total_export", 
   "oldfieldtype": "Currency", 
   "options": "currency", 
+  "permlevel": 0, 
   "print_hide": 0, 
   "read_only": 1
  }, 
@@ -490,9 +554,11 @@
   "doctype": "DocField", 
   "fieldname": "in_words_export", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "In Words", 
   "oldfieldname": "in_words_export", 
   "oldfieldtype": "Data", 
+  "permlevel": 0, 
   "print_hide": 0, 
   "read_only": 1
  }, 
@@ -504,6 +570,7 @@
   "oldfieldname": "gross_profit", 
   "oldfieldtype": "Currency", 
   "options": "Company:company:default_currency", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 1
  }, 
@@ -514,6 +581,7 @@
   "label": "Gross Profit (%)", 
   "oldfieldname": "gross_profit_percent", 
   "oldfieldtype": "Currency", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 1
  }, 
@@ -522,6 +590,7 @@
   "fieldname": "column_break5", 
   "fieldtype": "Column Break", 
   "oldfieldtype": "Column Break", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "width": "50%"
@@ -535,6 +604,7 @@
   "oldfieldname": "grand_total", 
   "oldfieldtype": "Currency", 
   "options": "Company:company:default_currency", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 1, 
   "reqd": 1, 
@@ -548,6 +618,7 @@
   "oldfieldname": "rounded_total", 
   "oldfieldtype": "Currency", 
   "options": "Company:company:default_currency", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 1
  }, 
@@ -559,6 +630,7 @@
   "label": "In Words (Company Currency)", 
   "oldfieldname": "in_words", 
   "oldfieldtype": "Data", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 1
  }, 
@@ -570,6 +642,7 @@
   "oldfieldname": "total_advance", 
   "oldfieldtype": "Currency", 
   "options": "Company:company:default_currency", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 1
  }, 
@@ -577,12 +650,14 @@
   "doctype": "DocField", 
   "fieldname": "outstanding_amount", 
   "fieldtype": "Currency", 
+  "hidden": 1, 
   "in_list_view": 1, 
   "label": "Outstanding Amount", 
   "no_copy": 1, 
   "oldfieldname": "outstanding_amount", 
   "oldfieldtype": "Currency", 
   "options": "Company:company:default_currency", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 1
  }, 
@@ -593,6 +668,7 @@
   "label": "Advances", 
   "oldfieldtype": "Section Break", 
   "options": "icon-money", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -603,6 +679,7 @@
   "label": "Get Advances Received", 
   "oldfieldtype": "Button", 
   "options": "get_advances", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -614,6 +691,7 @@
   "oldfieldname": "advance_adjustment_details", 
   "oldfieldtype": "Table", 
   "options": "Sales Invoice Advance", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -622,8 +700,10 @@
   "doctype": "DocField", 
   "fieldname": "payments_section", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "Payments", 
   "options": "icon-money", 
+  "permlevel": 2, 
   "read_only": 0
  }, 
  {
@@ -631,6 +711,7 @@
   "doctype": "DocField", 
   "fieldname": "column_break3", 
   "fieldtype": "Column Break", 
+  "permlevel": 0, 
   "read_only": 0, 
   "width": "50%"
  }, 
@@ -643,6 +724,7 @@
   "oldfieldname": "paid_amount", 
   "oldfieldtype": "Currency", 
   "options": "Company:company:default_currency", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -655,6 +737,7 @@
   "oldfieldname": "cash_bank_account", 
   "oldfieldtype": "Link", 
   "options": "Account", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -663,6 +746,7 @@
   "doctype": "DocField", 
   "fieldname": "column_break4", 
   "fieldtype": "Column Break", 
+  "permlevel": 0, 
   "read_only": 0, 
   "width": "50%"
  }, 
@@ -672,6 +756,7 @@
   "fieldname": "write_off_outstanding_amount_automatically", 
   "fieldtype": "Check", 
   "label": "Write Off Outstanding Amount", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -682,6 +767,7 @@
   "fieldtype": "Currency", 
   "label": "Write Off Amount", 
   "options": "Company:company:default_currency", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -692,6 +778,7 @@
   "fieldtype": "Link", 
   "label": "Write Off Account", 
   "options": "Account", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -702,6 +789,7 @@
   "fieldtype": "Link", 
   "label": "Write Off Cost Center", 
   "options": "Cost Center", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -709,9 +797,11 @@
   "doctype": "DocField", 
   "fieldname": "terms_section_break", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "Terms and Conditions", 
   "oldfieldtype": "Section Break", 
   "options": "icon-legal", 
+  "permlevel": 0, 
   "read_only": 0
  }, 
  {
@@ -722,6 +812,7 @@
   "oldfieldname": "tc_name", 
   "oldfieldtype": "Link", 
   "options": "Terms and Conditions", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -732,6 +823,7 @@
   "label": "Terms and Conditions Details", 
   "oldfieldname": "terms", 
   "oldfieldtype": "Text Editor", 
+  "permlevel": 0, 
   "read_only": 0
  }, 
  {
@@ -739,9 +831,10 @@
   "doctype": "DocField", 
   "fieldname": "contact_section", 
   "fieldtype": "Section Break", 
-  "hidden": 0, 
+  "hidden": 1, 
   "label": "Contact Info", 
   "options": "icon-bullhorn", 
+  "permlevel": 0, 
   "read_only": 0
  }, 
  {
@@ -749,12 +842,14 @@
   "doctype": "DocField", 
   "fieldname": "territory", 
   "fieldtype": "Link", 
+  "hidden": 1, 
   "in_filter": 1, 
   "label": "Territory", 
   "options": "Territory", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
-  "reqd": 1, 
+  "reqd": 0, 
   "search_index": 0
  }, 
  {
@@ -765,6 +860,7 @@
   "in_filter": 1, 
   "label": "Customer Group", 
   "options": "Customer Group", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "search_index": 0
@@ -773,6 +869,7 @@
   "doctype": "DocField", 
   "fieldname": "col_break23", 
   "fieldtype": "Column Break", 
+  "permlevel": 0, 
   "read_only": 0, 
   "width": "50%"
  }, 
@@ -782,6 +879,7 @@
   "fieldtype": "Link", 
   "label": "Customer Address", 
   "options": "Address", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -791,6 +889,7 @@
   "fieldtype": "Link", 
   "label": "Contact Person", 
   "options": "Contact", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -798,9 +897,11 @@
   "doctype": "DocField", 
   "fieldname": "more_info", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "More Info", 
   "oldfieldtype": "Section Break", 
   "options": "icon-file-text", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -814,9 +915,10 @@
   "oldfieldname": "debit_to", 
   "oldfieldtype": "Link", 
   "options": "Account", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
-  "reqd": 1, 
+  "reqd": 0, 
   "search_index": 1
  }, 
  {
@@ -828,6 +930,7 @@
   "oldfieldname": "project_name", 
   "oldfieldtype": "Link", 
   "options": "Project", 
+  "permlevel": 0, 
   "read_only": 0, 
   "search_index": 1
  }, 
@@ -840,6 +943,7 @@
   "oldfieldname": "campaign", 
   "oldfieldtype": "Link", 
   "options": "Campaign", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -851,6 +955,7 @@
   "oldfieldname": "source", 
   "oldfieldtype": "Select", 
   "options": "\nExisting Customer\nReference\nAdvertisement\nCold Calling\nExhibition\nSupplier Reference\nMass Mailing\nCustomer's Vendor\nCampaign", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -865,6 +970,7 @@
   "oldfieldname": "is_opening", 
   "oldfieldtype": "Select", 
   "options": "No\nYes", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "search_index": 0
@@ -876,6 +982,7 @@
   "label": "C-Form Applicable", 
   "no_copy": 1, 
   "options": "No\nYes", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "report_hide": 0
@@ -887,6 +994,7 @@
   "label": "C-Form No", 
   "no_copy": 1, 
   "options": "C-Form", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 1
  }, 
@@ -895,6 +1003,7 @@
   "fieldname": "column_break8", 
   "fieldtype": "Column Break", 
   "oldfieldtype": "Column Break", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -907,6 +1016,7 @@
   "oldfieldname": "letter_head", 
   "oldfieldtype": "Select", 
   "options": "link:Letter Head", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -920,6 +1030,7 @@
   "oldfieldname": "select_print_heading", 
   "oldfieldtype": "Link", 
   "options": "Print Heading", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "report_hide": 1
@@ -932,6 +1043,7 @@
   "no_copy": 1, 
   "oldfieldname": "posting_time", 
   "oldfieldtype": "Time", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -943,6 +1055,7 @@
   "label": "Aging Date", 
   "oldfieldname": "aging_date", 
   "oldfieldtype": "Date", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -956,6 +1069,7 @@
   "oldfieldname": "fiscal_year", 
   "oldfieldtype": "Select", 
   "options": "link:Fiscal Year", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "reqd": 1, 
@@ -969,6 +1083,7 @@
   "no_copy": 1, 
   "oldfieldname": "remarks", 
   "oldfieldtype": "Text", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "reqd": 0
@@ -977,9 +1092,11 @@
   "doctype": "DocField", 
   "fieldname": "sales_team_section_break", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "Sales Team", 
   "oldfieldtype": "Section Break", 
   "options": "icon-group", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -988,6 +1105,7 @@
   "fieldname": "column_break9", 
   "fieldtype": "Column Break", 
   "oldfieldtype": "Column Break", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "width": "50%"
@@ -1001,6 +1119,7 @@
   "oldfieldname": "sales_partner", 
   "oldfieldtype": "Link", 
   "options": "Sales Partner", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -1009,6 +1128,7 @@
   "fieldname": "column_break10", 
   "fieldtype": "Column Break", 
   "oldfieldtype": "Column Break", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "width": "50%"
@@ -1020,6 +1140,7 @@
   "label": "Commission Rate (%)", 
   "oldfieldname": "commission_rate", 
   "oldfieldtype": "Currency", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -1031,6 +1152,7 @@
   "oldfieldname": "total_commission", 
   "oldfieldtype": "Currency", 
   "options": "Company:company:default_currency", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -1038,6 +1160,7 @@
   "doctype": "DocField", 
   "fieldname": "section_break2", 
   "fieldtype": "Section Break", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -1045,10 +1168,12 @@
   "doctype": "DocField", 
   "fieldname": "sales_team", 
   "fieldtype": "Table", 
+  "hidden": 1, 
   "label": "Sales Team1", 
   "oldfieldname": "sales_team", 
   "oldfieldtype": "Table", 
   "options": "Sales Team", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -1057,8 +1182,10 @@
   "doctype": "DocField", 
   "fieldname": "recurring_invoice", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "Recurring Invoice", 
   "options": "icon-time", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -1066,6 +1193,7 @@
   "doctype": "DocField", 
   "fieldname": "column_break11", 
   "fieldtype": "Column Break", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "width": "50%"
@@ -1079,6 +1207,7 @@
   "fieldtype": "Check", 
   "label": "Convert into Recurring Invoice", 
   "no_copy": 1, 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -1092,6 +1221,7 @@
   "label": "Recurring Type", 
   "no_copy": 1, 
   "options": "Monthly\nQuarterly\nHalf-yearly\nYearly", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -1104,6 +1234,7 @@
   "fieldtype": "Int", 
   "label": "Repeat on Day of Month", 
   "no_copy": 1, 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -1116,6 +1247,7 @@
   "fieldtype": "Date", 
   "label": "Invoice Period From Date", 
   "no_copy": 1, 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -1128,6 +1260,7 @@
   "fieldtype": "Date", 
   "label": "Invoice Period To Date", 
   "no_copy": 1, 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -1136,6 +1269,7 @@
   "fieldname": "column_break12", 
   "fieldtype": "Column Break", 
   "no_copy": 0, 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "width": "50%"
@@ -1149,6 +1283,7 @@
   "fieldtype": "Small Text", 
   "label": "Notification Email Address", 
   "no_copy": 1, 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -1160,6 +1295,7 @@
   "fieldtype": "Data", 
   "label": "Recurring Id", 
   "no_copy": 1, 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 1
  }, 
@@ -1171,6 +1307,7 @@
   "fieldtype": "Date", 
   "label": "Next Date", 
   "no_copy": 1, 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 1
  }, 
@@ -1183,6 +1320,7 @@
   "fieldtype": "Date", 
   "label": "End Date", 
   "no_copy": 1, 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0
  }, 
@@ -1195,31 +1333,49 @@
   "no_copy": 1, 
   "oldfieldname": "against_income_account", 
   "oldfieldtype": "Small Text", 
+  "permlevel": 0, 
   "print_hide": 1, 
   "read_only": 0, 
   "report_hide": 1
  }, 
  {
-  "amend": 1, 
-  "cancel": 1, 
-  "create": 1, 
+  "doctype": "DocField", 
+  "fieldname": "franchise", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "franchise", 
+  "permlevel": 0
+ }, 
+ {
+  "default": "subfranchise", 
+  "doctype": "DocField", 
+  "fieldname": "invoice_type", 
+  "fieldtype": "Select", 
+  "hidden": 0, 
+  "label": "invoice type", 
+  "options": "\nsubfranchise\ncustomer", 
+  "permlevel": 0
+ }, 
+ {
+  "amend": 0, 
+  "cancel": 0, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Accounts Manager", 
-  "submit": 1, 
-  "write": 1
+  "submit": 0, 
+  "write": 0
  }, 
  {
-  "amend": 1, 
+  "amend": 0, 
   "cancel": 0, 
-  "create": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Accounts User", 
-  "submit": 1, 
-  "write": 1
+  "submit": 0, 
+  "write": 0
  }, 
  {
   "doctype": "DocPerm", 
-  "match": "customer", 
-  "role": "Customer"
+  "role": "All"
  }
 ]

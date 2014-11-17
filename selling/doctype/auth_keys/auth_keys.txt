@@ -1,0 +1,59 @@
+[
+ {
+  "creation": "2014-02-27 08:11:53", 
+  "docstatus": 0, 
+  "modified": "2014-02-27 08:26:03", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "field:user_name", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldtype": "Data", 
+  "name": "__common__", 
+  "parent": "auth keys", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "auth keys", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "auth keys"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "user_name", 
+  "label": "user name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "password", 
+  "label": "password"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "auth_key", 
+  "label": "auth key"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

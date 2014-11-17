@@ -2,7 +2,7 @@
  {
   "creation": "2013-06-11 14:26:44", 
   "docstatus": 0, 
-  "modified": "2014-02-05 11:50:59", 
+  "modified": "2014-09-26 15:30:23", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -137,13 +137,13 @@
   "fieldname": "territory", 
   "fieldtype": "Link", 
   "in_list_view": 1, 
-  "label": "Territory", 
+  "label": "Region", 
   "oldfieldname": "territory", 
   "oldfieldtype": "Link", 
   "options": "Territory", 
   "permlevel": 0, 
   "print_hide": 1, 
-  "reqd": 1
+  "reqd": 0
  }, 
  {
   "doctype": "DocField", 

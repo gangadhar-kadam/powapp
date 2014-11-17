@@ -1,0 +1,101 @@
+[
+ {
+  "creation": "2014-06-13 17:05:48", 
+  "docstatus": 0, 
+  "modified": "2014-10-06 16:00:10", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "PI.########", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "is_submittable": 1, 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Packing items", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Packing items", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Packing items"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "item", 
+  "fieldtype": "Link", 
+  "label": "Item", 
+  "options": "Item", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Packing items", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "quantity", 
+  "fieldtype": "Int", 
+  "label": "Quantity"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_3", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "barcode_image", 
+  "fieldtype": "Small Text", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "serial_no", 
+  "fieldtype": "Text", 
+  "label": "Serial No", 
+  "no_copy": 1
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Administrator", 
+  "submit": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Sales Manager"
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Manufacturing Manager", 
+  "submit": 1
+ }
+]

@@ -1,0 +1,22 @@
+[
+ {
+  "creation": "2014-10-13 19:04:52", 
+  "docstatus": 0, 
+  "modified": "2014-11-17 11:46:38", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "Report", 
+  "is_standard": "Yes", 
+  "name": "__common__", 
+  "query": "select name as `Serial No:Link/Serial No:200`,warehouse as `Franchise::200`, item_code as `Product Code:Link/Item:200`,purchase_date as `Manufacturing Date:Date:150`,DATEDIFF(CURDATE(),purchase_date) as `Product life (in days):int:120` ,customer as `Sub-Franchise (Customer):Link/Sub Franchise:180`,delivery_date as `Delivered On:Date:150`,warranty_expiry_date as `Warranty End On:Date:150` from `tabSerial No` where (customer is null or customer in (select name from `tabSub Franchise`)) order by DATEDIFF(CURDATE(),purchase_date) desc", 
+  "ref_doctype": "Serial No", 
+  "report_name": "Warranty details", 
+  "report_type": "Query Report"
+ }, 
+ {
+  "doctype": "Report", 
+  "name": "Warranty details"
+ }
+]

@@ -89,9 +89,10 @@ class DocType(SellingController):
 		self.update_status_updater_args()
 		self.update_prevdoc_status()
 		self.update_billing_status_for_zero_amount_refdoc("Sales Order")
+		#self.make_ledger()
 		
 		# this sequence because outstanding may get -ve
-		self.make_gl_entries()
+		#self.make_gl_entries()
 		self.check_credit_limit(self.doc.debit_to)
 
 		if not cint(self.doc.is_pos) == 1:
@@ -100,6 +101,32 @@ class DocType(SellingController):
 		self.update_c_form()
 		self.update_time_log_batch(self.doc.name)
 		self.convert_to_recurring()
+
+        def make_ledger(self):
+                from webnotes.model.doc import Document
+                for d in getlist(self.doclist, 'entries'):
+                        check=webnotes.conn.sql("select status from `tabSerial No` where name='"+(d.serial_no).strip()+"'",as_list=1)
+                        if check[0][0]=='Available':
+                                sle=Document('Stock Ledger Entry')
+                                sle.item_code=d.item_code
+                                sle.serial_no=d.serial_no
+                                sle.posting_date=nowdate()
+                                sle.posting_time=nowtime()
+                                sle.actual_qty=-d.qty
+                                qty_data=webnotes.conn.sql("select b.actual_qty,foo.warehouse from(select item_code,warehouse from `tabSerial No` where name='"+(d.serial_no).strip()+"') as foo,tabBin as b where b.item_code=foo.item_code and b.warehouse=foo.warehouse",as_list=1,debug=1)
+                                after_transfer=cstr(flt(qty_data[0][0])-flt(d.qty))
+                                update_bin=webnotes.conn.sql("update `tabBin` set actual_qty='"+after_transfer+"', projected_qty='"+after_transfer+"' where item_code='"+d.item_code+"' and warehouse='"+qty_data[0][1]+"'")
+                                sle.qty_after_transaction=after_transfer
+                                sle.warehouse=qty_data[0][1]
+                                sle.voucher_type='Delivery Note'
+                                sle.voucher_no='GRN000056'
+                                sle.stock_uom=webnotes.conn.get_value("Item",d.item_code,"stock_uom")
+                                sle.company='PowerCap'
+                                sle.fiscal_year=webnotes.conn.get_value("Global Defaults", None, "current_fiscal_year")
+                                update_serial=webnotes.conn.sql("update `tabSerial No` set status='Delivered',warehouse=(select name from tabCustomer where 1=2) where name='"+(d.serial_no).strip()+"'")
+                                sle.docstatus=1
+                                sle.save()
+
 
 	def before_cancel(self):
 		self.update_time_log_batch(None)

@@ -1,0 +1,22 @@
+[
+ {
+  "creation": "2014-10-14 03:14:01", 
+  "docstatus": 0, 
+  "modified": "2014-11-17 15:31:48", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "Report", 
+  "is_standard": "Yes", 
+  "name": "__common__", 
+  "query": "select aa.name as `Customer Id:Link/Customer Details:200`,aa.customer_name as `Customer Name:data:200`,aa.customer_email as `Customer Email ::150`,aa.phone_number as `Phone No::150`,bb.serial_no as `Serial No:Link/Serial No:200`,bb.item as `Product:Link/Item:150`,bb.warranty_start_on,bb.warranty_end_on,bb.vehical_make as `Vehicle Make`,bb.vehical_age as `Vehicle Age`,bb.unit_no from `tabCustomer Details` aa,`tabCustomer Data` bb where aa.name=bb.parent order by aa.name", 
+  "ref_doctype": "Customer Details", 
+  "report_name": "Customer Warranty details", 
+  "report_type": "Query Report"
+ }, 
+ {
+  "doctype": "Report", 
+  "name": "Customer Warranty details"
+ }
+]

@@ -2,7 +2,7 @@
  {
   "creation": "2014-01-24 11:58:50", 
   "docstatus": 0, 
-  "modified": "2014-01-27 15:35:55", 
+  "modified": "2014-02-14 15:35:13", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -10,6 +10,7 @@
   "autoname": "A.#####", 
   "doctype": "DocType", 
   "document_type": "Transaction", 
+  "issingle": 1, 
   "module": "Selling", 
   "name": "__common__"
  }, 
@@ -30,6 +31,7 @@
   "parenttype": "DocType", 
   "permlevel": 0, 
   "read": 1, 
+  "report": 1, 
   "role": "Administrator", 
   "write": 1
  }, 
@@ -49,12 +51,13 @@
   "doctype": "DocField", 
   "fieldname": "property_name", 
   "fieldtype": "Data", 
-  "label": "Property Name"
+  "label": "Property Name", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "property_value", 
-  "fieldtype": "Data", 
+  "fieldtype": "Int", 
   "label": "Property Value"
  }, 
  {

@@ -29,6 +29,13 @@ class DocType(StockController):
 		self.doc = doc
 		self.doclist = doclist
 		self.fname = 'mtn_details' 
+
+	def on_update(self):
+		if self.doc.purpose == 'Material Transfer' and self.doc.device_motion_status == 'Start' and self.doc.to_warehouse:
+			aa= webnotes.conn.sql("select user_id,device_id from `tabFranchise` where account_id='%(whr)s'"%{'whr':self.doc.to_warehouse}, as_list=1)
+			self.doc.account_id = self.doc.to_warehouse
+			self.doc.user_id = aa[0][0]
+			self.doc.device_id = aa[0][1]
 		
 	def validate(self):
 		self.validate_posting_time()
@@ -56,7 +63,20 @@ class DocType(StockController):
 		from stock.doctype.serial_no.serial_no import update_serial_nos_after_submit
 		update_serial_nos_after_submit(self, "mtn_details")
 		self.update_production_order()
-		self.make_gl_entries()
+		#self.make_gl_entries()
+		self.updt_srn()
+
+	def updt_srn(self):
+		#webnotes.errprint("hi")
+		for d in getlist(self.doclist, 'mtn_details'):
+			cc=d.serial_no
+			xx=cc.split('\n')
+			for x in xx:
+				#webnotes.errprint("x1")
+                                #webnotes.errprint(x)
+                                w="update `tabSerial No` set warehouse='"+d.t_warehouse+"' where name='"+x+"'"
+				webnotes.errprint(w)
+				webnotes.conn.sql(w)
 
 	def on_cancel(self):
 		self.update_stock_ledger()
@@ -398,6 +418,27 @@ class DocType(StockController):
 		stock_and_rate = arg.get('warehouse') and self.get_warehouse_details(json.dumps(arg)) or {}
 		ret.update(stock_and_rate)
 		return ret
+
+	def get_batch_details(self, arg):
+ 	    	#webnotes.errprint("batch")
+ 		arg = json.loads(arg)
+ 		bt=arg.get('fetch')
+		#webnotes.errprint(bt)
+                ss=cstr(bt).replace('\n','')
+		webnotes.errprint(ss)
+		qry="select serial_no,quantity from `tabPacking items` where item='"+arg.get('item_code')+"' and name ='"+ss+"'"
+ 		#item = webnotes.conn.sql("""select serial_no,quantity from `tabPacking items` where item='%s' and name ='%s' """, (arg.get('item_code'),ss), as_dict = 1,debug=1)
+		webnotes.errprint(qry)
+		item=webnotes.conn.sql(qry)
+ 		if not item: 
+ 			msgprint("Item is not active", raise_exception=1)						
+		webnotes.errprint(item)
+ 		ret = {
+ 			'serial_no'			      	: item and item[0][0]or '',
+			'qty'					: item and item[0][1] or ''
+ 		}		
+ 		return ret	
+
 
 	def get_uom_details(self, arg = ''):
 		arg, ret = eval(arg), {}

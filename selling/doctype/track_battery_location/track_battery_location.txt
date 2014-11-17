@@ -2,14 +2,13 @@
  {
   "creation": "2014-02-07 17:33:25", 
   "docstatus": 0, 
-  "modified": "2014-02-12 17:08:32", 
+  "modified": "2014-11-14 12:06:49", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
  {
-  "autoname": "Track Battery Location", 
   "doctype": "DocType", 
-  "document_type": "Master", 
+  "issingle": 1, 
   "module": "Selling", 
   "name": "__common__"
  }, 
@@ -41,26 +40,26 @@
   "fieldname": "account_id", 
   "fieldtype": "Link", 
   "hidden": 1, 
-  "label": "account id", 
+  "label": "Account id", 
   "options": "Franchise", 
   "reqd": 0
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "column_break_2", 
-  "fieldtype": "Column Break"
- }, 
- {
-  "doctype": "DocField", 
   "fieldname": "barcode", 
   "fieldtype": "Data", 
-  "label": "barcode"
+  "label": "Barcode"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "track_battery_location", 
   "fieldtype": "Button", 
-  "label": "Track battery location"
+  "label": "Track Battery Location"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_2", 
+  "fieldtype": "Column Break"
  }, 
  {
   "doctype": "DocField", 
@@ -70,6 +69,18 @@
   "read_only": 1
  }, 
  {
+  "doctype": "DocField", 
+  "fieldname": "map", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sub_map", 
+  "fieldtype": "HTML", 
+  "label": "Map", 
+  "options": "<div id=\"map_canvas\" style=\"width:550px; height:400px;margin-left:15%;margin-top:2%\"></div>"
+ }, 
+ {
   "doctype": "DocPerm", 
   "role": "Administrator"
  }, 
@@ -77,5 +88,9 @@
   "doctype": "DocPerm", 
   "match": "account_id", 
   "role": "Franchise"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Sales Manager"
  }
 ]

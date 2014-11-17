@@ -1,11 +1,6 @@
 pos = $(this.frm.parent)[0].childNodes[6].childNodes[5].childNodes[1].childNodes[1].childNodes[0].childNodes[4].childNodes[2].childNodes[0].childNodes[1]
 $('<div id="map_canvas" style="width:550px; height:400px;margin-left:15%">HTML</div>').appendTo(pos);
 
-cur_frm.cscript.onload = function(doc,dt,dn){
-	//console.log($(pos))
-	var o = new gmap(doc);
-}
-
 ip = $(this.frm.parent)[0].childNodes[6].childNodes[5].childNodes[1].childNodes[1].childNodes[0].childNodes[4].childNodes[2].childNodes[0].childNodes[1].childNodes[2].childNodes[1].childNodes[3].childNodes[1]
 var d = '';
 ip.onkeypress=function(e){
@@ -14,6 +9,125 @@ ip.onkeypress=function(e){
 		cur_frm.cscript.map(e);
 };
 
+var myMarker= [];
+
+cur_frm.cscript.onload=function(doc,cdt,cdn){
+	//if(doc.__islocal){
+	var o = new gmap(doc);
+	cur_frm.cscript.create_pin_on_map(doc,doc.lat,doc.lon)
+	//}
+}
+
+ cur_frm.cscript.create_pin_on_map=function(doc,lat,lon){
+	var latLng = new google.maps.LatLng(lat, lon);
+        var map = new google.maps.Map(document.getElementById('map_canvas'), {
+
+    zoom: 13,
+
+    center: latLng,
+
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+
+  });
+
+  var marker = new google.maps.Marker({
+
+    position: latLng,
+
+    title: 'Point',
+
+    map: map,
+
+    draggable: true
+
+  });
+        updateMarkerPosition(latLng);
+geocodePosition(latLng);
+
+  google.maps.event.addListener(marker, 'dragstart', function() {
+
+    updateMarkerAddress('Dragging...');
+
+  });
+
+  google.maps.event.addListener(marker, 'drag', function() {
+
+    updateMarkerStatus('Dragging...');
+
+    updateMarkerPosition(marker.getPosition());
+
+  });
+
+  google.maps.event.addListener(marker, 'dragend', function() {
+
+    updateMarkerStatus('Drag ended');
+
+    geocodePosition(marker.getPosition());
+
+  });
+
+
+}
+
+function geocodePosition(pos) {
+
+  geocoder.geocode({
+
+    latLng: pos
+
+  }, function(responses) {
+   // console.log(responses);
+    if (responses && responses.length > 0) {
+      updateMarkerAddress(responses[0].formatted_address);
+
+    } else {
+      if(doc.__islocal) {
+console.log(responses.length);
+      alert('Cannot determine address at this location.');
+            }
+    }
+
+  });
+
+}
+
+function updateMarkerAddress(str) {
+  doc=cur_frm.doc
+  doc.address= str;
+  refresh_field('address')
+
+}
+
+function updateMarkerStatus(str) {
+var s=1;
+
+}
+
+function updateMarkerPosition(latLng) {
+  doc=cur_frm.doc
+  console.log(["update",latLng,doc.lat,doc.lon,latLng.lat(),latLng.lng()])
+  doc.lat=latLng.lat()
+  doc.lon=latLng.lng()
+  console.log([doc.lat,doc.lon,doc.name])
+  refresh_field('lat')
+  refresh_field('lon')
+
+}
+
+var geocoder = new google.maps.Geocoder();
+
+var getMarkerUniqueId= function(lat, lng) {
+
+    return lat + '_' + lng;
+
+}
+
+var getLatLng = function(lat, lng) {
+
+    return new google.maps.LatLng(lat, lng);
+
+};      
+	
 cur_frm.cscript.map =function(doc, dt, dn){
 	var searchBox;
 	ip = $(this.frm.parent)[0].childNodes[6].childNodes[5].childNodes[1].childNodes[1].childNodes[0].childNodes[4].childNodes[2].childNodes[0].childNodes[1].childNodes[2].childNodes[1].childNodes[3].childNodes[1].childNodes
@@ -35,8 +149,15 @@ cur_frm.cscript.callback = function(doc, dt, dn, ltln, ip){
 	var plc;
 	google.maps.event.addListener(searchBox, 'place_changed', function() {
 		var place = searchBox.getPlace();
-		cur_frm.set_value('lat',place.geometry.location.d)
-		cur_frm.set_value('lon',place.geometry.location.e)
+		var doc=cur_frm.doc
+		//cur_frm.cscript.create_pin_on_map(doc,place.geometry.location.d,place.geometry.location.e)		
+		//cur_frm.set_value('lat',place.geometry.location.d)
+		//cur_frm.set_value('lon',place.geometry.location.e)
+		//cur_frm.set_value("address", place.formatted_address)
+		console.log([place.formatted_address, place.geometry.location.B, place.geometry.location.k])
+		cur_frm.cscript.create_pin_on_map(doc,place.geometry.location.k,place.geometry.location.B)		
+		cur_frm.set_value('lat',place.geometry.location.k)
+		cur_frm.set_value('lon',place.geometry.location.B)
 		cur_frm.set_value("address", place.formatted_address)
 	});
 
@@ -93,7 +214,8 @@ gmap = Class.extend({
 	},
 	get_map:function(searchBox){
 	var markers = [];  searchBox.bindTo('bounds', map);
-
+		  var doc=cur_frm.doc
+		   
 		  var infowindow = new google.maps.InfoWindow();
 		  var marker = new google.maps.Marker({
 		    map: map
@@ -137,6 +259,8 @@ gmap = Class.extend({
 		    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
 		    infowindow.open(map, marker);
 		  });
+
+		  
 	},
 	codeAddress: function (addr,str) {
 		console.log(addr)
@@ -158,3 +282,5 @@ gmap = Class.extend({
 		});
 	}
 });
+
+

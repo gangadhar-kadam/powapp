@@ -2,7 +2,7 @@
  {
   "creation": "2013-01-10 16:34:22", 
   "docstatus": 0, 
-  "modified": "2013-07-05 14:55:36", 
+  "modified": "2014-09-30 00:29:32", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -58,39 +58,7 @@
   "fieldname": "send_to", 
   "fieldtype": "Select", 
   "label": "Send To", 
-  "options": "\nAll Contact\nAll Customer Contact\nAll Supplier Contact\nAll Sales Partner Contact\nAll Lead (Open)\nAll Employee (Active)\nAll Sales Person"
- }, 
- {
-  "depends_on": "eval:doc.send_to=='All Customer Contact'", 
-  "doctype": "DocField", 
-  "fieldname": "customer", 
-  "fieldtype": "Link", 
-  "label": "Customer", 
-  "options": "Customer"
- }, 
- {
-  "depends_on": "eval:doc.send_to=='All Supplier Contact'", 
-  "doctype": "DocField", 
-  "fieldname": "supplier", 
-  "fieldtype": "Link", 
-  "label": "Supplier", 
-  "options": "Supplier"
- }, 
- {
-  "depends_on": "eval:doc.send_to=='All Employee (Active)'", 
-  "doctype": "DocField", 
-  "fieldname": "department", 
-  "fieldtype": "Select", 
-  "label": "Department", 
-  "options": "link:Department"
- }, 
- {
-  "depends_on": "eval:doc.send_to=='All Employee (Active)'", 
-  "doctype": "DocField", 
-  "fieldname": "branch", 
-  "fieldtype": "Select", 
-  "label": "Branch", 
-  "options": "link:Branch"
+  "options": "All Customer\nAll Sub -franchiese\nAll franchiese"
  }, 
  {
   "doctype": "DocField", 

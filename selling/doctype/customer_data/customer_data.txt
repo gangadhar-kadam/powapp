@@ -1,0 +1,96 @@
+[
+ {
+  "creation": "2014-02-26 18:49:07", 
+  "docstatus": 0, 
+  "modified": "2014-10-14 10:26:59", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "CDC/.######", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "istable": 1, 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Customer Data", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Customer Data"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "serial_no", 
+  "fieldtype": "Link", 
+  "in_filter": 1, 
+  "in_list_view": 1, 
+  "label": "Battery Serial No.", 
+  "options": "Serial No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "capacitor_serial_no", 
+  "fieldtype": "Data", 
+  "label": "Capacitor serial No."
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "item", 
+  "fieldtype": "Data", 
+  "label": "item"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "warranty_start_on", 
+  "fieldtype": "Date", 
+  "in_list_view": 1, 
+  "label": "Warranty Start On", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "warranty_end_on", 
+  "fieldtype": "Date", 
+  "in_list_view": 1, 
+  "label": "Warranty End On", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "vehical_make", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Vehicle Make"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "vehical_age", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Vehicle Age"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "unit_no", 
+  "fieldtype": "Link", 
+  "in_list_view": 1, 
+  "label": "Unit No.", 
+  "options": "Serial No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "replaced_using_warrenty", 
+  "fieldtype": "Link", 
+  "in_list_view": 1, 
+  "label": "Replaced Using Warranty", 
+  "options": "Serial No"
+ }
+]

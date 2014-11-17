@@ -8,6 +8,54 @@ from webnotes.utils import cstr, cint, fmt_money, get_base_path
 from webnotes.webutils import delete_page_cache
 from selling.utils.cart import _get_cart_quotation
 
+
+@webnotes.whitelist(allow_guest=True)
+def get_data(fullname):
+	if fullname=='cm':
+		data=webnotes.conn.sql("select ifnull(net_total,0) as net_total, name from `tabSales Invoice` where customer is not null and EXTRACT(MONTH FROM creation)=EXTRACT(MONTH FROM CURDATE())",as_dict=1)
+        	bb="""{"chart": { "caption" : "Sales Summary Dashboard" ,"xAxisName" : "Sales Invoice", "yAxisName" : "Sales(Rs.)","numberPrefix" : "Rs."}, "data" :["""
+        	cc=""""""
+        	if data :
+        	        for items in data:
+        	                cc=cc+'{"label":"'+items['name']+'","value":"'+cstr(items['net_total'])+'"},'
+	
+        		cc=cc[:-1]+']}'
+			webnotes.errprint(cc)
+        		return bb+cc
+        	else :
+        		return "No"
+    	else:
+		data=webnotes.conn.sql("select ifnull(net_total,0) as net_total, name from `tabSales Invoice` where customer is not null  order by creation asc",as_dict=1)
+        	bb="""{"chart": { "caption" : "Sales Summary Dashboard" ,"xAxisName" : "Sales Invoice", "yAxisName" : "Sales(Rs.)","numberPrefix" : "Rs." }, "data" :["""
+        	cc=""""""
+        	if data :
+        	        for items in data:
+        	                cc=cc+'{"label":"'+items['name']+'","value":"'+cstr(items['net_total'])+'"},'
+	
+        		cc=cc[:-1]+']}'
+			webnotes.errprint(cc)
+        		return bb+cc
+        	else :
+        		return "No"
+
+
+        #data=webnotes.conn.sql("select ifnull(net_total,0) as net_total, name from `tabSales Invoice` where customer is not null",as_dict=1)
+        #webnotes.errprint(data)
+	#bb="""{"chart": { "caption" : "Franchise Wise Sales Summary" ,"xAxisName" : "Sales Invoice", "yAxisName" : "Sales(Rs.)","numberPrefix" : "Rs." }, "data" :["""
+        ##webnotes.errprint(bb)
+	#cc=""""""
+        #if data :
+ 	#	for items in data:
+	#		cc=cc+'{"label":"'+items['name']+'","value":"'+cstr(items['net_total'])+'"},'
+        #        
+	#cc=cc[:-1]+']}'
+	#webnotes.errprint(bb+cc)
+	#return bb+cc
+        #return """{ "chart": { "caption" : "Weekly Sales Summary" , "xAxisName" : "Week", "yAxisName" : "Sales", "numberPrefix" : "$" },"data" : [ { "label" : "Week 1", "value" : "14400" },{ "label" : "Week 2", "value" : "19600" }, { "label" : "Week 3", "value" : "24000" },{ "label" : "Week 4", "value" : "15700" } ]}"""
+
+
+
+
 @webnotes.whitelist(allow_guest=True)
 def get_product_info(item_code):
 	"""get product price / stock info"""

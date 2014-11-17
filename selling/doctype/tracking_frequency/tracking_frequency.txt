@@ -1,0 +1,58 @@
+[
+ {
+  "creation": "2014-02-14 16:43:53", 
+  "docstatus": 0, 
+  "modified": "2014-10-08 11:53:50", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "TF.######", 
+  "doctype": "DocType", 
+  "issingle": 1, 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Tracking Frequency", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Tracking Frequency", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "System Manager", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Tracking Frequency"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "property_name", 
+  "fieldtype": "Data", 
+  "hidden": 0, 
+  "label": "Property Name", 
+  "read_only": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "property_value", 
+  "fieldtype": "Int", 
+  "label": "Property Value"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

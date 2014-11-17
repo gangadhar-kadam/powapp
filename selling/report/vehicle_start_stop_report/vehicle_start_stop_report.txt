@@ -1,0 +1,22 @@
+[
+ {
+  "creation": "2014-02-18 16:14:26", 
+  "docstatus": 0, 
+  "modified": "2014-02-18 16:18:38", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "Report", 
+  "is_standard": "Yes", 
+  "name": "__common__", 
+  "query": "select accountID,deviceID,date_format(from_unixtime(timestamp),'%d-%m-%Y'),latitude,longitude,address,SCode from EventData", 
+  "ref_doctype": "Sub Franchise", 
+  "report_name": "Vehicle Start Stop Report", 
+  "report_type": "Script Report"
+ }, 
+ {
+  "doctype": "Report", 
+  "name": "Vehicle Start Stop Report"
+ }
+]

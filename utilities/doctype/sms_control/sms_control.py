@@ -59,7 +59,7 @@ class DocType:
 
 	def send_sms(self, receiver_list, msg, sender_name = ''):
 		receiver_list = self.validate_receiver_nos(receiver_list)
-
+		webnotes.errprint(receiver_list)
 		arg = {
 			'receiver_list' : receiver_list,
 			'message'		: msg,
@@ -92,6 +92,7 @@ class DocType:
 		headers = {}
 		headers['Accept'] = "text/plain, text/html, */*"
 		conn.request('GET', api_url + urllib.urlencode(args), headers = headers)    # send request
+		webnotes.errprint(api_url + urllib.urlencode(args))
 		resp = conn.getresponse()     # get response
 		resp = resp.read()
 		return resp

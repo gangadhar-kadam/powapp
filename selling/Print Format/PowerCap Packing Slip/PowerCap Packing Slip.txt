@@ -1,0 +1,22 @@
+[
+ {
+  "creation": "2014-06-13 17:10:58", 
+  "docstatus": 0, 
+  "modified": "2014-10-16 19:44:01", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doc_type": "Packing items", 
+  "doctype": "Print Format", 
+  "html": "<h2 align=\"center\"><b><script>doc.select_print_heading || \"Chheda Electricals & Electronics Pvt.Ltd.\"</script></b></h2>\n<table width=\"60%\" align=\"center\" border=\"1\" style=\"border-collapse: collapse; border:2px solid black;\" >\n<tbody width=60%>\n<tr>\n<td colspan=\"2\" align=\"center\" style=\"border:2px solid black;\">Gat No. 2032, Village Palshi, Taluka \u2013 Khandala,  </br>\nDistrict \u2013 Satara, Maharashtra \u2013 India \u2013 412801</td>\n</tr>\n<tr>\n<td colspan=\"2\" align=\"center\" style=\"border:2px solid black;\"><script>(doc.barcode_image)</script> </b></td>\n</tr>\n<tr>\n<td ><b width=\"30%\" align=\"left\" > Item : </b><script>(doc.item)</script> </b></td>\n<td ><b width=\"30%\" align=\"right\" > Quantity : </b><script>(doc.quantity)</script> </b></td>\n</tr>\n<tr>\n<td colspan=\"2\" align=\"left\" style=\"border:2px solid black;\"><b> QR codes : </b><script>(doc.serial_no)</script> </b></td>\n</tr>\n</tbody>\n</table>\n", 
+  "module": "Selling", 
+  "name": "__common__", 
+  "print_format_type": "Client", 
+  "standard": "Yes"
+ }, 
+ {
+  "doctype": "Print Format", 
+  "name": "PowerCap Packing Slip"
+ }
+]

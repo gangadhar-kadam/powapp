@@ -2,7 +2,7 @@
  {
   "creation": "2013-03-29 18:22:12", 
   "docstatus": 0, 
-  "modified": "2014-01-15 16:08:45", 
+  "modified": "2014-11-14 12:04:52", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -64,6 +64,12 @@
   "read_only": 0, 
   "reqd": 1, 
   "search_index": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "fetch", 
+  "fieldtype": "Small Text", 
+  "label": "Fetch Items From Batch (Packing Items)"
  }, 
  {
   "doctype": "DocField", 

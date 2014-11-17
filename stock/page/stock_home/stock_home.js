@@ -9,29 +9,29 @@ wn.module_page["Stock"] = [
 		items: [
 			{
 				label: wn._("Item"),
-				description: wn._("All Products or Services."),
+				description: wn._("All Products Or Services."),
 				doctype:"Item"
 			},
-			{
-				label: wn._("Material Request"),
-				description: wn._("Requests for items."),
-				doctype:"Material Request"
-			},
+	//		{
+	//			label: wn._("Material Request"),
+	//			description: wn._("Requests for items."),
+	//			doctype:"Material Request"
+	//		},
 			{
 				label: wn._("Stock Entry"),
-				description: wn._("Record item movement."),
+				description: wn._("Record Item Movement."),
 				doctype:"Stock Entry"
 			},
-			{
-				label: wn._("Delivery Note"),
-				description: wn._("Shipments to customers."),
-				doctype:"Delivery Note"
-			},
-			{
-				label: wn._("Purchase Receipt"),
-				description: wn._("Goods received from Suppliers."),
-				doctype:"Purchase Receipt"
-			},
+	//		{
+	//			label: wn._("Delivery Note"),
+	//			description: wn._("Shipments to customers."),
+	//			doctype:"Delivery Note"
+	//		},
+	//		{
+	//			label: wn._("Purchase Receipt"),
+	//			description: wn._("Goods received from Suppliers."),
+	//			doctype:"Purchase Receipt"
+	//		},
 		]
 	},
 	{
@@ -40,7 +40,7 @@ wn.module_page["Stock"] = [
 		items: [
 			{
 				label: wn._("Serial No"),
-				description: wn._("Single unit of an Item."),
+				description: wn._("Single Unit Of An Item."),
 				doctype:"Serial No"
 			},
 //			{
@@ -50,7 +50,7 @@ wn.module_page["Stock"] = [
 //			},
 			{
 				label: wn._("Warehouse"),
-				description: wn._("Where items are stored."),
+				description: wn._("Where Items Are Stored."),
 				doctype:"Warehouse"
 			},
 		]
@@ -62,7 +62,7 @@ wn.module_page["Stock"] = [
 			{
 				"doctype":"Stock Reconciliation",
 				"label": wn._("Stock Reconciliation"),
-				description: wn._("Upload stock balance via csv.")
+				description: wn._("Upload Stock Balance Via Csv.")
 			},
 //			{
 //				"doctype":"Installation Note",
@@ -136,15 +136,41 @@ wn.module_page["Stock"] = [
 		right: true,
 		icon: "icon-table",
 		items: [
+			//{
+			//	"label":wn._("Stock Ledger"),
+			//	doctype: "Item",
+			//	route: "query-report/Stock Ledger"
+		//	},
+		//	{
+		//		"label":wn._("Stock Balance"),
+		//		page: "stock-balance"
+		//	},
+
 			{
-				"label":wn._("Stock Ledger"),
-				doctype: "Item",
-				route: "query-report/Stock Ledger"
-			},
+                                "label":wn._("Customer Warranty Details"),
+                                doctype: "Serial No",
+                                route: "query-report/Customer Warranty details"
+                        },
+
 			{
-				"label":wn._("Stock Balance"),
-				page: "stock-balance"
-			},
+                                "label":wn._("Stock Balance Report"),
+                                doctype: "Serial No",
+                                route: "query-report/Stock Balance Report"
+                        },
+
+
+			{
+                                "label":wn._("Warranty Details"),
+                                doctype: "Serial No",
+                                route: "query-report/Warranty details"
+                        },
+
+			{
+                                "label":wn._("Sold Item Details"),
+                                doctype: "Sales Invoice",
+                                route: "query-report/Sold Item Details"
+                        },
+
 //			{
 //				"label":wn._("Stock Projected Qty"),
 //				doctype: "Item",
@@ -168,11 +194,11 @@ wn.module_page["Stock"] = [
 //			},
 //		]
 //	},
-	{
-		title: wn._("Reports"),
-		right: true,
-		icon: "icon-list",
-		items: [
+	//{
+	//	title: wn._("Reports"),
+	//	right: true,
+	//	icon: "icon-list",
+	//	items: [
 //			{
 //				"label":wn._("Ordered Items To Be Delivered"),
 //				route: "query-report/Ordered Items To Be Delivered",
@@ -213,21 +239,21 @@ wn.module_page["Stock"] = [
 //				route: "query-report/Purchase In Transit",
 //				doctype: "Purchase Order"
 //			},
-			{
-				"label":wn._("Requested Items To Be Transferred"),
-				route: "query-report/Requested Items To Be Transferred",
-				doctype: "Material Request"
-			},
-			{
-				"label":wn._("Batch-Wise Balance History"),
-				route: "query-report/Batch-Wise Balance History",
-				doctype: "Batch"
-			},
-			{
-				"label":wn._("Warehouse-Wise Stock Balance"),
-				route: "query-report/Warehouse-Wise Stock Balance",
-				doctype: "Warehouse"
-			},
+	//		{
+	//			"label":wn._("Requested Items To Be Transferred"),
+	//			route: "query-report/Requested Items To Be Transferred",
+	//			doctype: "Material Request"
+	//		},
+	//		{
+	//			"label":wn._("Batch-Wise Balance History"),
+	//			route: "query-report/Batch-Wise Balance History",
+	//			doctype: "Batch"
+	//		},
+			//{
+			//	"label":wn._("Warehouse-Wise Stock Balance"),
+			///	route: "query-report/Warehouse-Wise Stock Balance",
+			//	doctype: "Warehouse"
+			//},
 //			{
 //				"label":wn._("Item Prices"),
 //				route: "query-report/Item Prices",
@@ -248,8 +274,8 @@ wn.module_page["Stock"] = [
 //				route: "query-report/Purchase Receipt Trends",
 //				doctype: "Purchase Receipt"
 //			},
-		]
-	}
+	//	]
+//	}
 ]
 
 pscript['onload_stock-home'] = function(wrapper) {

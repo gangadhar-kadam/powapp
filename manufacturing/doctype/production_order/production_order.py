@@ -188,6 +188,7 @@ def get_details():
 		#return "testaccount","123456"
 		webnotes.errprint(res)
         	if res:
+		   #webnotes.errprint("hiii")
 		   return res
 		else:
 		   return "Not"
@@ -196,22 +197,38 @@ def get_details():
 
 @webnotes.whitelist()
 def get_detail1(serial_no=None):
-	if serial_no:
-		webnotes.errprint(serial_no)
-		txt = serial_no
-		data=webnotes.conn.sql("select case when status='Delivered' then customer else warehouse end as data,status from `tabSerial No` where name='%s'"%(txt),as_dict=1)
-		webnotes.errprint(data)
-		if data :
-			if data[0]['status']=='Delivered':
-				return 'customer',data[0]['data']
-			elif data[0]['status']=='Available' and data[0]['data']=='Finished Goods - P':
-				return 'admin',data[0]['data']
-			else:
-				
-				rs=webnotes.conn.sql("select name, password from tabFranchise where name='"+data[0]['data']+"'",as_list=1)
-				device_id = webnotes.conn.sql("""select name from tabVehicle where account_id = '%s'"""%data[0]['data'],as_list=1)
-           		return 'usr',rs,device_id[0][0]
-    		else:
-			return 'Not'
-	else :
-		return "Not"
+        if serial_no:
+                #webnotes.errprint(serial_no)
+                txt = serial_no
+                check_data=webnotes.conn.sql("select a.customer_name,a.phone_number from `tabCustomer Details` a,`tabCustomer Data` b  where b.serial_no='"+txt+"' and b.parent=a.name",as_list=1,debug=1)
+                if check_data:
+                        return "Customer",check_data[0][0],check_data[0][1]
+                else:
+                        data=webnotes.conn.sql("select case when status='Delivered' then customer else warehouse end as data,status from `tabSerial No` where name='%s'"%(txt),as_dict=1,debug=1)
+                	webnotes.errprint(data)
+                        if data :
+                                if data[0]['status']=='Delivered':
+					ltq="select lat,lon from `tabSub Franchise` where name='"+cstr(data[0]['data'])+"'"
+                                        latlong=webnotes.conn.sql("select lat,lon from `tabSub Franchise` where name='"+data[0]['data']+"'",as_dict=1)
+                                        #webnotes.errprint(ltq)
+					#webnotes.errprint(data[0]['data'])
+					#webnotes.errprint(latlong)
+					if latlong:
+                                        	return 'sub franchise',data[0]['data'],latlong[0]['lat'],latlong[0]['lon']
+					else:
+						return 'Customer',data[0]['data'],''
+                                elif data[0]['status']=='Available' and data[0]['data']=='Finished Goods - P':
+                                        return 'admin',data[0]['data']
+                                else:
+                                        #webnotes.errprint("else")
+                                        rs=webnotes.conn.sql("select account_id, password from tabFranchise where account_id='"+data[0]['data']+"'",as_list=1)
+                                        #webnotes.errprint(data[0]['data'])
+                                        device_id = webnotes.conn.sql("""select deviceID from Device where accountID = '%s'"""%data[0]['data'],as_list=1)
+					#if device_id:
+                                        webnotes.errprint(device_id[0][0])
+                                return 'usr',rs,device_id[0][0]
+                        else:
+                                return 'Not'
+        else :
+                return "Not"
+
