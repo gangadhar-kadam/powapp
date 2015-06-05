@@ -2,7 +2,7 @@
  {
   "creation": "2014-02-05 13:33:16", 
   "docstatus": 0, 
-  "modified": "2014-11-15 16:50:37", 
+  "modified": "2014-12-26 17:21:39", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -63,7 +63,7 @@
   "fieldname": "region", 
   "fieldtype": "Data", 
   "hidden": 0, 
-  "label": "Region", 
+  "label": "Territory", 
   "read_only": 1
  }, 
  {
@@ -107,6 +107,7 @@
   "doctype": "DocField", 
   "fieldname": "visited", 
   "fieldtype": "Select", 
+  "in_list_view": 1, 
   "label": "Visited", 
   "options": "Yes\nNo", 
   "read_only": 1

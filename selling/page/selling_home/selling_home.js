@@ -282,6 +282,13 @@ wn.module_page["Selling"] = [
                                 doctype:"Sub Franchise Visiting Schedule"
                         },
 
+
+			{
+                                "label":wn._("Sub-Franchises Out Of Territory"),  
+                                route: "query-report/Out Of Region Sub Franchise",
+                                doctype:"Sub Franchise"
+                        },
+
 //			{
 //				"label":wn._("Lead Details"),
 //				route: "query-report/Lead Details",

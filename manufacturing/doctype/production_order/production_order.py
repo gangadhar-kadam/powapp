@@ -202,7 +202,8 @@ def get_detail1(serial_no=None):
                 txt = serial_no
                 check_data=webnotes.conn.sql("select a.customer_name,a.phone_number from `tabCustomer Details` a,`tabCustomer Data` b  where b.serial_no='"+txt+"' and b.parent=a.name",as_list=1,debug=1)
                 if check_data:
-                        return "Customer",check_data[0][0],check_data[0][1]
+			detls=webnotes.conn.sql("select item_code,warranty_expiry_date from `tabSerial No` where name='"+txt+"' ",as_list=1)
+                        return "Customer",check_data[0][0],check_data[0][1],detls[0][0],detls[0][1]
                 else:
                         data=webnotes.conn.sql("select case when status='Delivered' then customer else warehouse end as data,status from `tabSerial No` where name='%s'"%(txt),as_dict=1,debug=1)
                 	webnotes.errprint(data)

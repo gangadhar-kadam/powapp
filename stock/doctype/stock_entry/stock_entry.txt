@@ -2,7 +2,7 @@
  {
   "creation": "2013-04-09 11:43:55", 
   "docstatus": 0, 
-  "modified": "2014-11-13 11:47:42", 
+  "modified": "2015-05-26 15:28:06", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -150,6 +150,7 @@
   "search_index": 1
  }, 
  {
+  "default": "Start", 
   "doctype": "DocField", 
   "fieldname": "device_motion_status", 
   "fieldtype": "Select", 

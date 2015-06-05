@@ -1,0 +1,22 @@
+[
+ {
+  "creation": "2015-04-06 15:28:44", 
+  "docstatus": 0, 
+  "modified": "2015-04-06 15:28:44", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "Report", 
+  "is_standard": "Yes", 
+  "json": "{\"filters\":[],\"columns\":[[\"name\",\"Customer Details\"],[\"customer_name\",\"Customer Details\"],[\"customer_email\",\"Customer Details\"],[\"phone_number\",\"Customer Details\"],[\"serial_no\",\"Customer Data\"],[\"capacitor_serial_no\",\"Customer Data\"],[\"vehical_make\",\"Customer Data\"],[\"vehical_age\",\"Customer Data\"],[\"warranty_start_on\",\"Customer Data\"],[\"warranty_end_on\",\"Customer Data\"]],\"sort_by\":\"Customer Details.modified\",\"sort_order\":\"desc\",\"sort_by_next\":\"\",\"sort_order_next\":\"desc\"}", 
+  "name": "__common__", 
+  "ref_doctype": "Customer Details", 
+  "report_name": "test", 
+  "report_type": "Report Builder"
+ }, 
+ {
+  "doctype": "Report", 
+  "name": "test"
+ }
+]

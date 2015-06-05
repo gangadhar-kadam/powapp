@@ -51,7 +51,7 @@
   }, 
   "Selling": {
    "color": "#1abc9c", 
-   "icon": "icon-tag", 
+   "icon": "icon-money", 
    "link": "selling-home", 
    "type": "module"
   }, 

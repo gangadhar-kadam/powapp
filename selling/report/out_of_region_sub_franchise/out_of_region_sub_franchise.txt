@@ -1,0 +1,21 @@
+[
+ {
+  "creation": "2014-11-18 18:41:36", 
+  "docstatus": 0, 
+  "modified": "2014-11-18 18:41:36", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "Report", 
+  "is_standard": "Yes", 
+  "name": "__common__", 
+  "ref_doctype": "Sub Franchise", 
+  "report_name": "Out Of Region Sub Franchise", 
+  "report_type": "Script Report"
+ }, 
+ {
+  "doctype": "Report", 
+  "name": "Out Of Region Sub Franchise"
+ }
+]

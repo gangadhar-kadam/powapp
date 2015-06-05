@@ -15,7 +15,13 @@ class DocType:
 	def __init__(self, d, dl):
 		self.doc, self.doclist = d, dl
 
+	#def autoname(self):
+		
+
 	def validate(self):
+		self.validate_imei()
+		self.validate_userid_and_franchise()
+		self.validate_region()
 		if self.doc.fields.get('__islocal') or not self.doc.name:
 			res=webnotes.conn.sql("select count(name) from tabFranchise")
 			webnotes.errprint(res)
@@ -23,12 +29,12 @@ class DocType:
 				pass
 			else:
 				webnotes.msgprint("The maximun franchises creation limit is reached, Please contact administrator...!" , raise_exception=1)
-		#Franchise
+	
 		if self.doc.account_id:
 			if self.doc.account_id.isalpha():
 				pass
 			else:
-				msgprint("Please enter only letters, space not allowed in Franchise name..",raise_exception=1)
+				msgprint("Franchise name allow only letters not space or special characters.",raise_exception=1)
 
 		#Contact Number
 		cont=self.doc.contact_phone
@@ -76,6 +82,37 @@ class DocType:
                 #if dvc:
                 #       validate='false'
                 #      msgprint("Device Id Already Exist",raise_exception=1)
+	def validate_userid_and_franchise(self):
+		franchise=webnotes.conn.sql("select name from `tabFranchise` where account_id='%s' and user_id='%s'"%(self.doc.account_id,self.doc.user_id),as_list=1)
+		webnotes.errprint(franchise)
+		if franchise:
+			webnotes.errprint(franchise[0][0])
+			if franchise[0][0]!=self.doc.name:
+				msgprint("This UserID and Franchise used in another territory..Record not save.",raise_exception=1)
+
+	def validate_imei(self):
+		#IMEI 
+                imei=webnotes.conn.sql("select name from `tabFranchise` where device_id='%s'"%(self.doc.device_id),as_list=1)
+                #webnotes.errprint(imei)
+                if imei:
+			#webnotes.errprint(imei[0][0])
+			if imei[0][0]!=self.doc.name:
+				msgprint("This IMEI number is used for another franchise.Please check and correct the no.",raise_exception=1)
+                ##Email self.doc.__islocal
+                email=webnotes.conn.sql("select name from `tabFranchise` where contact_email='%s'"%(self.doc.contact_email),as_list=1)
+                #webnotes.errprint(email)
+		if email :
+			if email[0][0]!=self.doc.name:
+		        	msgprint("Franchise and user is already created for this email..",raise_exception=1)
+
+	def validate_region(self):
+		rgn = webnotes.conn.sql("select name from `tabFranchise` where active='1' and region='"+self.doc.region+"'",as_list=1)
+		# webnotes.errprint(rgn[0][0])
+		if rgn :
+			if rgn[0][0]!=self.doc.name:
+				msgprint("Franchise not created for this territory '"+self.doc.region+"', this is already used in another franchise.",raise_exception=1)
+			else:
+				pass
 
 	def on_update(self):
 		#self.profile_ceation()
@@ -91,6 +128,9 @@ class DocType:
                         res="update Account set password='"+cstr(self.doc.password)+"',isActive='"+cstr(self.doc.active)+"',description='"+cstr(self.doc.account_description)+"',contactEmail='"+cstr(self.doc.contact_email)+"',contactName='"+cstr(self.doc.contact_name)+"',contactPhone='"+cstr(self.doc.contact_phone)+"',notifyEmail='"+cstr(self.doc.notify_email)+"',speedUnits='"+cstr(self.doc.speed_units)+"',distanceUnits='"+cstr(self.doc.distance_units)+"',volumeUnits='"+cstr(self.doc.volume_units)+"',pressureUnits='"+cstr(self.doc.pressure_units)+"',economyUnits='"+cstr(self.doc.economy_units)+"',temperatureUnits='"+cstr(self.doc.temperature_units)+"',latLonFormat='"+cstr(self.doc.latitude_longitude_format)+"' where erp='"+cstr(self.doc.name)+"'"
                         webnotes.conn.sql(res)
                         webnotes.errprint(res)
+			update_pass="update __Auth set password=password('"+self.doc.password+"') where user='"+self.doc.contact_email+"' "
+                        webnotes.conn.sql(update_pass)
+			webnotes.errprint(update_pass)
                 else:
                         qry="insert into Account (accountID,password,isActive,description,contactName,contactPhone,contactEmail,notifyEmail,speedUnits,distanceUnits,volumeUnits,pressureUnits,economyUnits,temperatureUnits,latLonFormat,erp) values('"+cstr(self.doc.account_id)+"','"+cstr(self.doc.password)+"','"+cstr(self.doc.active)+"','"+cstr(self.doc.account_description)+"','"+cstr(self.doc.contact_name)+"','"+cstr(self.doc.contact_phone)+"','"+cstr(self.doc.contact_email)+"','"+cstr(self.doc.notify_email)+"','"+cstr(self.doc.speed_units)+"','"+cstr(self.doc.distance_units)+"','"+cstr(self.doc.volume_units)+"','"+cstr(self.doc.pressure_units)+"','"+cstr(self.doc.economy_units)+"','"+cstr(self.doc.temperature_units)+"','"+cstr(self.doc.latitude_longitude_format)+"','"+cstr(self.doc.name)+"')"
                         webnotes.conn.sql(qry)
@@ -168,8 +208,8 @@ class DocType:
 			pass
 		#webnotes.errprint("Done...")
 		self.profile_ceation()
-		self.validate_email()
-		self.validate_notify_email()
+		#self.validate_email()
+		#self.validate_notify_email()
 		
 	def validate_email(self):
 		if self.doc.contact_email and not validate_email_add(self.doc.contact_email):
@@ -218,7 +258,7 @@ class DocType:
 				aa="insert into __Auth(user,password) values('"+self.doc.contact_email+"',password('"+self.doc.password+"'))"
 				webnotes.errprint(aa)
 				webnotes.conn.sql(aa)
-				zz=webnotes.conn.sql("select accountID from Geozone where accountID='"+self.doc.region+"' and geozoneID='"+self.doc.region+"'",debug=1)
+				zz=webnotes.conn.sql("select accountID from Geozone where accountID='"+self.doc.account_id+"' and geozoneID='"+self.doc.region+"'",debug=1)
 				if not zz:
 					bb="INSERT INTO Geozone select '"+self.doc.account_id+"', geozoneID,sortID, minLatitude,maxLatitude,minLongitude,maxLongitude,zonePurposeID,reverseGeocode,arrivalZone,departureZone,autoNotify,zoomRegion,shapeColor,zoneType,radius,latitude1,longitude1,latitude2,longitude2,latitude3,longitude3,latitude4,longitude4,latitude5,longitude5,latitude6,longitude6,latitude7,longitude7,latitude8,longitude8,latitude9,longitude9,latitude10,longitude10,clientUpload,clientID,groupID,streetAddress,city,stateProvince,postalCode,country,subdivision,displayName,description,lastUpdateTime,creationTime from Geozone where accountID='sysadmin' and geozoneID='"+self.doc.region+"'"
 					webnotes.errprint (bb)
@@ -243,8 +283,8 @@ class DocType:
 					pass
 				else:
 					dl="insert into DeviceList (accountID,groupID,deviceID) values('"+cstr(self.doc.account_id)+"','"+cstr(self.doc.authorized_group)+"','"+cstr(self.doc.device_id)+"')"
-				webnotes.conn.sql(dl)
-				webnotes.errprint(dl)
+					webnotes.conn.sql(dl)
+					webnotes.errprint(dl)
 				#GROUP List
 				glist=webnotes.conn.sql("select groupID from GroupList where accountID='"+cstr(self.doc.account_id)+"' and userID='"+cstr(self.doc.user_id)+"'")
 				webnotes.errprint(glist)

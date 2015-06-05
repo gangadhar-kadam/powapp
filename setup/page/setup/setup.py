@@ -258,3 +258,5 @@ def set_count(item):
 	elif "doctype" in item:
 		item["count"] = webnotes.conn.sql("select count(*) from `tab%s` where docstatus<2" \
 			% item["doctype"])[0][0]
+		if item["doctype"]=='Territory':
+			item["count"] -=1

@@ -1,5 +1,5 @@
 # Copyright (c) 2013, Web Notes Technologies Pvt. Ltd. and Contributors
-# License: GNU General Public License v3. See license.txt
+# License: GNU General Public License v3. See license.txt.
 
 from __future__ import unicode_literals
 import webnotes
@@ -490,6 +490,73 @@ def dashboard(auth_key):
 		loginObj['status']='401'
 		loginObj['balance_batteries']='0'
 		return loginObj
+
+@webnotes.whitelist(allow_guest=True)
+def dashboard1(auth_key):
+        loginObj = {}
+        qr="select name from `tabauth keys` where auth_key="+auth_key
+        res=webnotes.conn.sql(qr)
+        if res :
+                rr="select account_id,name,region from `tabFranchise` where contact_email='"+res[0][0]+"'"
+                r1=webnotes.conn.sql(rr)
+                #webnotes.errprint(r1)
+		lst=[]
+		sr_no=webnotes.conn.sql("select name from `tabSerial No` where status='Available' and lower(warehouse)=lower('"+r1[0][0]+"')")
+		#sr_no=webnotes.conn.sql("select count(name) from `tabSerial No` where status='Available' and warehouse=lower('"+r1[0][0]+"')")
+                #sr=webnotes.conn.sql(sr_no)
+                for sr in sr_no:
+			lst.append(sr[0])
+               	if r1:
+                     	aa="select sum(b.qty),a.modified,b.serial_no from `tabStock Entry` a ,`tabStock Entry Detail` b where date_format(a.creation, '%Y-%m-%d')=CURDATE() and a.docstatus=1 and a.name=b.parent and a.purpose='Material Transfer' and lower(a.to_warehouse)=lower('"+r1[0][0]+"') "
+                        #webnotes.errprint(aa)
+	                r2=webnotes.conn.sql(aa)
+				
+		        if r2:
+        		       	bb="select name from `tabSales Invoice`  where date_format(creation, '%Y-%m-%d')=CURDATE() and territory='"+r1[0][2]+"'"
+                	       	r3=webnotes.conn.sql(bb)
+                	       	#webnotes.errprint(bb)
+                        	if r3:
+                        		cc="select sum(qty) from `tabSales Invoice Item`  where parent in ("+bb+")"
+                               		r4=webnotes.conn.sql(cc)
+                             		if r4:	
+                                       	        loginObj['status']='200'
+                                       	        #loginObj['total_battery_load']=r2[0][0]
+                                       	        loginObj['sales_invoices']=r3
+                                               	loginObj['total_battery_sold']=r4[0][0]
+                                               	loginObj['balance_batteries']=lst
+                                               	loginObj['support_sms_no']='9960066444'
+                                               	return loginObj
+					else:
+        	                                loginObj['status']='200'
+                	                        #loginObj['total_battery_load']=r2[0][0]
+                                                loginObj['sales_invoices']=r3
+                                                loginObj['total_battery_sold']='0'
+                                                loginObj['balance_batteries']=lst
+                               	                loginObj['support_sms_no']='9960066444'
+                                       	        return loginObj
+                               	else:
+                               	        loginObj['status']='200'
+                               	        #loginObj['total_battery_load']=r2[0][0]
+                               	        loginObj['sales_invoices']='0'
+                               	        loginObj['total_battery_sold']='0'
+                                       	loginObj['balance_batteries']=lst
+                               		loginObj['support_sms_no']='9960066444'
+                               		return loginObj
+                        else:
+                                loginObj['status']='200'
+                                #loginObj['total_battery_load']='0'
+                               	loginObj['sales_invoices']='0'
+                               	loginObj['total_battery_sold']='0'
+                               	loginObj['balance_batteries']='0'
+                               	loginObj['support_sms_no']='9960066444'
+                               	return loginObj
+		else:
+	               	loginObj['status']='500'
+	              	return loginObj
+        else:
+               	loginObj['status']='401'
+               	loginObj['balance_batteries']='0'
+               	return loginObj
 
 @webnotes.whitelist(allow_guest=True)
 def create_customer(auth_key,name,mobile_number,email_id,datetime,version,_type='POST'):
@@ -1043,9 +1110,86 @@ def create_in(data,_type='POST'):
 				
                         zz+="'"+a[:-1].replace(',','')+"',"
                    else:
-                        loginObj['status']='400'
-                        loginObj['error']='invalid serial no (QR Code) please contact administrator'
-                        return loginObj
+                   	if invoice_type=='CUSTOMER':
+				l = Document('Customer Details',customer)
+		                l.customer_name=customer
+		                l.save()
+		                webnotes.conn.commit()
+				for ll in item_details:
+				   m = Document('Customer Data')
+				   m.serial_no=a[:-1]
+		                   m.parent=l.name
+		                   m.parenttype='Customer Details'
+		                   m.parentfield='customer_data'
+			           m.save(new=1)
+				   webnotes.conn.commit()			
+			qrt="select name from `tabauth keys` where auth_key='"+auth_key+"'"
+		        res=webnotes.conn.sql(qrt)
+        		net=0
+		        if res:
+                		a="select name from tabCustomer where name='"+customer+"'"
+		                b=webnotes.conn.sql(a)
+		                if b:
+		                        a=''
+		                else:
+                		        d = Document('Customer')
+                		        d.customer_name=customer
+		                        d.name=customer
+                		        d.save(new=1)
+                		        webnotes.conn.commit()
+               		qr="select name from `tabauth keys` where auth_key='"+auth_key+"'"
+               		#webnotes.errprint(qr)
+			res=webnotes.conn.sql(qr)
+			rgn=''
+			if res :
+		           rr="select region from `tabFranchise` where contact_email='"+res[0][0]+"'"
+		           #webnotes.errprint(qr)
+                           r1=webnotes.conn.sql(rr,as_list=1)
+                           #webnotes.errprint(r1[0][0])			   
+                	d = Document('Sales Invoice')
+	                d.customer=customer
+	                d.customer_name=customer
+        	        d.posting_date=dattime[1:-1]
+        	        d.due_date=dattime[1:-1]
+        	        d.remarks='Invalid QR code'
+        	        d.selling_price_list='Standard Selling'
+        	        d.currency='INR'
+        	        if r1:
+        	        	d.territory=r1[0][0]
+        	        	d.region=r1[0][0]
+        	        d.net_total_export=0
+        	        d.grand_total_export=0
+        	        d.rounded_total_export=0
+        	        d.plc_conversion_rate=1			
+        	        from webnotes.utils import nowdate
+        	        from accounts.utils import get_fiscal_year
+        	        today = nowdate()
+        	        d.fiscal_year=get_fiscal_year(today)[0]
+        	        d.debit_to=customer[1:-1]+" - P"
+        	        d.is_pos=1
+        	        d.cash_bank_account='Cash - P'
+        	        d.docstatus=1
+        	        d.save(new=1)
+        	        webnotes.conn.commit()
+        	        e=Document('Sales Invoice Item')
+		        e.description="Invalid QR code"
+		        e.qty='1'
+		        e.stock_uom='Nos'
+		        e.serial_no_=a[:-1]
+		        e.parent=d.name
+		        e.parenttype='Sales Invoice'
+		        e.parentfield='entries'
+		        e.save(new=1)        	        	        
+        	        webnotes.conn.commit()
+        	        key={}
+        	        key['invoice_id']=d.name
+        	        login.append(key)
+        	        loginObj['status']='200'
+        	        loginObj['invoice']=login
+        	        return loginObj
+                        #loginObj['status']='400'
+                        #loginObj['error']='invalid serial no (QR Code) please contact administrator'
+                        #return loginObj
         z=zz[:-1]
 	u="select distinct item_code from `tabSerial No` where name in ("+z+")"
 	s=webnotes.conn.sql(u,as_list=1)

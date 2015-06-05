@@ -1,0 +1,22 @@
+[
+ {
+  "creation": "2015-03-03 15:26:18", 
+  "docstatus": 0, 
+  "modified": "2015-03-03 15:28:59", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "Report", 
+  "is_standard": "Yes", 
+  "json": "{\"filters\":[],\"columns\":[[\"name\",\"Customer\"],[\"customer_name\",\"Customer\"],[\"lead_name\",\"Customer\"],[\"customer_group\",\"Customer\"],[\"company\",\"Customer\"]],\"sort_by\":\"Customer.modified\",\"sort_order\":\"desc\",\"sort_by_next\":\"\",\"sort_order_next\":\"desc\"}", 
+  "name": "__common__", 
+  "ref_doctype": "Customer", 
+  "report_name": "test report", 
+  "report_type": "Report Builder"
+ }, 
+ {
+  "doctype": "Report", 
+  "name": "test report"
+ }
+]

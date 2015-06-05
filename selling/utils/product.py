@@ -12,12 +12,13 @@ from selling.utils.cart import _get_cart_quotation
 @webnotes.whitelist(allow_guest=True)
 def get_data(fullname):
 	if fullname=='cm':
-		data=webnotes.conn.sql("select ifnull(net_total,0) as net_total, name from `tabSales Invoice` where customer is not null and EXTRACT(MONTH FROM creation)=EXTRACT(MONTH FROM CURDATE())",as_dict=1)
-        	bb="""{"chart": { "caption" : "Sales Summary Dashboard" ,"xAxisName" : "Sales Invoice", "yAxisName" : "Sales(Rs.)","numberPrefix" : "Rs."}, "data" :["""
+		#data=webnotes.conn.sql("select ifnull(net_total,0) as net_total, name from `tabSales Invoice` where customer is not null and EXTRACT(MONTH FROM creation)=EXTRACT(MONTH FROM CURDATE())",as_dict=1)
+		data=webnotes.conn.sql("select ifnull(sum(net_total),0) as net_total,region from `tabSales Invoice` where customer is not null and EXTRACT(MONTH FROM creation)=EXTRACT(MONTH FROM CURDATE()) group by region",as_dict=1)
+        	bb="""{"chart": { "caption" : "Sales Summary Dashboard" ,"xAxisName" : "Territory", "yAxisName" : "Sales(Rs.)","numberPrefix" : "Rs."}, "data" :["""
         	cc=""""""
         	if data :
         	        for items in data:
-        	                cc=cc+'{"label":"'+items['name']+'","value":"'+cstr(items['net_total'])+'"},'
+        	                cc=cc+'{"label":"'+cstr(items['region'])+'","value":"'+cstr(items['net_total'])+'"},'
 	
         		cc=cc[:-1]+']}'
 			webnotes.errprint(cc)
@@ -25,12 +26,15 @@ def get_data(fullname):
         	else :
         		return "No"
     	else:
-		data=webnotes.conn.sql("select ifnull(net_total,0) as net_total, name from `tabSales Invoice` where customer is not null  order by creation asc",as_dict=1)
-        	bb="""{"chart": { "caption" : "Sales Summary Dashboard" ,"xAxisName" : "Sales Invoice", "yAxisName" : "Sales(Rs.)","numberPrefix" : "Rs." }, "data" :["""
+		#data=webnotes.conn.sql("select ifnull(net_total,0) as net_total, name from `tabSales Invoice` where customer is not null  order by creation asc",as_dict=1)
+		#data=webnotes.conn.sql("select ifnull(sum(net_total),0) as net_total, region from `tabSales Invoice` where customer is not null and creation between date(concat(year(now()),'-01-01')) and now() group by region",as_dict=1)
+		data=webnotes.conn.sql("select ifnull(sum(net_total),0) as net_total,date_format(creation,'%M') as month from `tabSales Invoice` where customer is not null and creation between date(concat(year(now()),'-01-01')) and now() group by month, now() order by EXTRACT(MONTH FROM CURDATE()) asc",as_dict=1)
+		webnotes.errprint(data)
+        	bb="""{"chart": { "caption" : "Sales Summary Dashboard" ,"xAxisName" : "Month", "yAxisName" : "Sales(Rs.)","numberPrefix" : "Rs." }, "data" :["""
         	cc=""""""
         	if data :
         	        for items in data:
-        	                cc=cc+'{"label":"'+items['name']+'","value":"'+cstr(items['net_total'])+'"},'
+        	                cc=cc+'{"label":"'+cstr(items['month'])+'","value":"'+cstr(items['net_total'])+'"},'
 	
         		cc=cc[:-1]+']}'
 			webnotes.errprint(cc)

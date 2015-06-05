@@ -33,9 +33,12 @@ class DocType(StockController):
 	def on_update(self):
 		if self.doc.purpose == 'Material Transfer' and self.doc.device_motion_status == 'Start' and self.doc.to_warehouse:
 			aa= webnotes.conn.sql("select user_id,device_id from `tabFranchise` where account_id='%(whr)s'"%{'whr':self.doc.to_warehouse}, as_list=1)
-			self.doc.account_id = self.doc.to_warehouse
-			self.doc.user_id = aa[0][0]
-			self.doc.device_id = aa[0][1]
+			if aa:
+				self.doc.account_id = self.doc.to_warehouse
+				self.doc.user_id = aa[0][0]
+				self.doc.device_id = aa[0][1]
+			else:
+				msgprint("Targate warehouse-'"+self.doc.to_warehouse+"' not match with any franchise.Please select valid targate warehouse..", raise_exception=1)
 		
 	def validate(self):
 		self.validate_posting_time()
@@ -56,6 +59,7 @@ class DocType(StockController):
 		self.validate_with_material_request()
 		self.validate_fiscal_year()
 		self.set_total_amount()
+		self.validate_packing_battery()
 		
 	def on_submit(self):
 		self.update_stock_ledger()
@@ -75,7 +79,7 @@ class DocType(StockController):
 				#webnotes.errprint("x1")
                                 #webnotes.errprint(x)
                                 w="update `tabSerial No` set warehouse='"+d.t_warehouse+"' where name='"+x+"'"
-				webnotes.errprint(w)
+				#webnotes.errprint(w)
 				webnotes.conn.sql(w)
 
 	def on_cancel(self):
@@ -201,12 +205,15 @@ class DocType(StockController):
 	def get_stock_and_rate(self):
 		"""get stock and incoming rate on posting date"""
 		for d in getlist(self.doclist, 'mtn_details'):
+			ss=cstr(d.fetch).replace('\n','')
+			q =webnotes.conn.sql("select quantity from `tabPacking items` where name ='"+ss+"'",as_list=1)
+			#webnotes.errprint(q)
 			args = webnotes._dict({
 				"item_code": d.item_code,
 				"warehouse": d.s_warehouse or d.t_warehouse,
 				"posting_date": self.doc.posting_date,
 				"posting_time": self.doc.posting_time,
-				"qty": d.s_warehouse and -1*d.transfer_qty or d.transfer_qty,
+				"qty": d.s_warehouse and -1*q[0][0] or d.q[0][0],
 				"serial_no": d.serial_no,
 				"bom_no": d.bom_no,
 			})
@@ -217,7 +224,7 @@ class DocType(StockController):
 			if not flt(d.incoming_rate):
 				d.incoming_rate = self.get_incoming_rate(args)
 				
-			d.amount = flt(d.transfer_qty) * flt(d.incoming_rate)
+			d.amount = flt(d.qty) * flt(d.incoming_rate)
 			
 	def get_incoming_rate(self, args):
 		incoming_rate = 0
@@ -419,25 +426,63 @@ class DocType(StockController):
 		ret.update(stock_and_rate)
 		return ret
 
+	def validate_packing_battery(self):
+                #aa=webnotes.conn.sql("select sd.fetch from `tabStock Entry`se ,`tabStock Entry Detail`sd where se.name=sd.parent",as_list=1)
+                #webnotes.errprint(aa)
+		for d in getlist(self.doclist, 'mtn_details'):
+			#webnotes.errprint(d.fetch)
+			bt=webnotes.conn.sql("select se.name from `tabStock Entry`se ,`tabStock Entry Detail`sd where sd.fetch='"+d.fetch+"' and se.name=sd.parent",as_list=1)
+			#webnotes.errprint(bt[0][0])
+                	if bt:
+				
+				if bt[0][0]!=self.doc.name:
+					msgprint("Stock Entry alredy created for this Packing Battery Items..!", raise_exception=1)
+				else:
+					pass
+
 	def get_batch_details(self, arg):
  	    	#webnotes.errprint("batch")
  		arg = json.loads(arg)
  		bt=arg.get('fetch')
 		#webnotes.errprint(bt)
                 ss=cstr(bt).replace('\n','')
-		webnotes.errprint(ss)
-		qry="select serial_no,quantity from `tabPacking items` where item='"+arg.get('item_code')+"' and name ='"+ss+"'"
+		#webnotes.errprint(ss)
+		#webnotes.errprint(arg.get('item_code'))
+		qry="select serial_no,quantity,item from `tabPacking items` where name ='"+ss+"'"
  		#item = webnotes.conn.sql("""select serial_no,quantity from `tabPacking items` where item='%s' and name ='%s' """, (arg.get('item_code'),ss), as_dict = 1,debug=1)
-		webnotes.errprint(qry)
 		item=webnotes.conn.sql(qry)
+		desc=webnotes.conn.sql("select description from `tabItem` where name='"+item[0][2]+"'")
+		#item=webnotes.conn.sql(qry)
+		#webnotes.errprint(item)
+		rate=webnotes.conn.sql("select ref_rate from `tabItem Price` where item_code='"+item[0][2]+"' and selling=1")
+		#webnotes.errprint(rate)
+		#if rate:
+		#	rt=rate[0][0]*item[0][1]
  		if not item: 
  			msgprint("Item is not active", raise_exception=1)						
-		webnotes.errprint(item)
- 		ret = {
- 			'serial_no'			      	: item and item[0][0]or '',
-			'qty'					: item and item[0][1] or ''
- 		}		
- 		return ret	
+		#webnotes.errprint(item)
+		if rate:
+                        #rt=rate[0][0]*item[0][1]
+			rt=rate[0][0]
+ 			ret = {
+ 				'serial_no'			      	: item and item[0][0] or '',
+				'qty'					: item and item[0][1] or '',
+				'incoming_rate'				: rt or '',
+				'item_code'				: item and item[0][2] or '',
+				'item_name'				: item and item[0][2] or '',
+				'description'				: desc and desc[0][0] or ''
+ 			}		
+ 			return ret	
+		else:
+			ret = {
+                                'serial_no'                             : item and item[0][0] or '',
+                                'qty'                                   : item and item[0][1] or '',
+                                'incoming_rate'                         : 0.00,
+                                'item_code'                             : item and item[0][2] or '',
+                                'item_name'                             : item and item[0][2] or '',
+                                'description'                           : desc and desc[0][0] or ''
+                        }
+                        return ret
 
 
 	def get_uom_details(self, arg = ''):

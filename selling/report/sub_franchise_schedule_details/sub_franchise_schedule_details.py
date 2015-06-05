@@ -15,7 +15,7 @@ def execute(filters=None):
 
 def get_columns():
         #return ["Region:Data:150", "Franchise Name:Data:160","Sub-Franchise Name:Data:160", "Weekely:Int:100","Forth Nightly:Int:100","One Monthly:Int:100"]
-	return ["Region:Data:90", "Franchise Name:Data:130","Sub-Franchise Name:Data:160","Planned Weekly visits:Data:160","Planned Fort Nightly visits:Data:160","Planned Monthly visits:Data:160","Actutal Visits:Data:100","Average visited days difference:Data:160","See Details:Data:160"]
+	return ["Territory:Data:90", "Franchise Name:Data:130","Sub-Franchise Name:Data:160","Planned Weekly visits:Data:160","Planned Fort Nightly visits:Data:160","Planned Monthly visits:Data:160","Actutal Visits:Data:100","Average visited days difference:Data:160","See Details:Data:160"]
 	
 
 def get_plan_details(filters):

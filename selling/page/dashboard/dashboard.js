@@ -5,7 +5,7 @@
 		single_column: true
 	});	
 	//$wrapper.append('<div id="select_condition">FusionCharts XT will load here!</div>')
-	$('<div class="select_condition">Please Select A Criteria For Dashboard <select id="select_type" name="dropdown"><option value="cm" selected>Current Months</option><option value="all">All</option></select> </div>').appendTo($wrapper.find(".appframe"));				
+	$('<div class="select_condition">Please Select A Criteria For Dashboard <select id="select_type" name="dropdown"><option value="cm" selected>Current Month</option><option value="all">All</option></select> </div>').appendTo($wrapper.find(".appframe"));				
     console.log($('#select_type').val());
     console.log("calling default value function");
 

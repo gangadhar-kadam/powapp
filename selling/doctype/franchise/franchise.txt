@@ -2,7 +2,7 @@
  {
   "creation": "2014-01-28 15:32:10", 
   "docstatus": 0, 
-  "modified": "2014-11-14 18:32:45", 
+  "modified": "2015-05-08 16:15:03", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -96,13 +96,23 @@
   "fieldtype": "Column Break"
  }, 
  {
+  "depends_on": "eval:doc.__islocal", 
   "doctype": "DocField", 
   "fieldname": "region", 
   "fieldtype": "Link", 
   "in_list_view": 1, 
-  "label": "Region", 
+  "label": "Territory", 
   "options": "Territory", 
   "reqd": 1
+ }, 
+ {
+  "depends_on": "eval:!doc.__islocal", 
+  "doctype": "DocField", 
+  "fieldname": "region1", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Territory", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -296,12 +306,14 @@
   "create": 1, 
   "doctype": "DocPerm", 
   "permlevel": 0, 
+  "report": 1, 
   "role": "System Manager", 
   "write": 1
  }, 
  {
   "doctype": "DocPerm", 
   "permlevel": 1, 
+  "report": 1, 
   "role": "System Manager", 
   "write": 1
  }

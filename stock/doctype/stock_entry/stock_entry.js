@@ -394,10 +394,10 @@ cur_frm.fields_dict.supplier.get_query = function(doc, cdt, cdn) {
 }
 
 cur_frm.cscript.fetch = function(doc, cdt, cdn) {
-	console.log("fetch");
+	//console.log(d.item_code);
 	var d = locals[cdt][cdn];
 	args = {
-		'item_code'			: d.item_code,
+		//'item_code'			: d.item_code,
 		'fetch'			: d.fetch
 	};
 	return get_server_fields('get_batch_details', JSON.stringify(args), 

@@ -2,7 +2,7 @@
  {
   "creation": "2014-10-13 12:40:18", 
   "docstatus": 0, 
-  "modified": "2014-11-17 11:50:57", 
+  "modified": "2015-01-03 17:53:54", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -10,7 +10,7 @@
   "doctype": "Report", 
   "is_standard": "Yes", 
   "name": "__common__", 
-  "query": "select warehouse as `Franchise ::250` ,count(name) as `Stock Balance:int:200` from `tabSerial No` where warehouse is not null and warehouse<> '' group by warehouse", 
+  "query": "select warehouse as `Franchise ::250` ,count(name) as `Stock Balance:int:200` from `tabSerial No` where warehouse is not null and warehouse<> ''  and status='Available' group by warehouse", 
   "ref_doctype": "Serial No", 
   "report_name": "Stock Balance Report", 
   "report_type": "Query Report"

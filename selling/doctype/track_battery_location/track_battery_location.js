@@ -58,7 +58,7 @@ cur_frm.cscript.track_battery_location=function(doc,cdt,cdn)
                         else if(r.message[0]=='Customer')
                         {
                                 document.getElementById('map_canvas').style.display = 'none';
-                                doc.customer_data='Status :- Deliverd \n'+'Customer Name :- '+r.message[1]+' \n Contact Number:- '+r.message[2]
+                                doc.customer_data='Status :- Deliverd \n'+'Customer Name :- '+r.message[1]+' \n Contact Number:- '+r.message[2]+'\n Product Name:-'+r.message[3]+'\n Warrenty End on :-'+r.message[4]
                                 refresh_field('customer_data')
                         }
 

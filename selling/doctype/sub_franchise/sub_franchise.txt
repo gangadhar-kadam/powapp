@@ -2,7 +2,7 @@
  {
   "creation": "2014-01-28 15:51:45", 
   "docstatus": 0, 
-  "modified": "2014-11-14 11:57:43", 
+  "modified": "2015-05-07 19:06:20", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -45,7 +45,7 @@
   "fieldname": "region", 
   "fieldtype": "Link", 
   "in_list_view": 1, 
-  "label": "Region", 
+  "label": "Territory", 
   "options": "Territory", 
   "reqd": 1
  }, 
@@ -64,7 +64,7 @@
   "fieldname": "sf_name", 
   "fieldtype": "Data", 
   "in_list_view": 1, 
-  "label": "Sub-Franchise Name", 
+  "label": "Name of the Sub Franchisee", 
   "reqd": 1
  }, 
  {
@@ -91,8 +91,14 @@
   "doctype": "DocField", 
   "fieldname": "c_name", 
   "fieldtype": "Data", 
-  "label": "Contact Name", 
+  "label": "Name of the person", 
   "reqd": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "birth_date", 
+  "fieldtype": "Date", 
+  "label": "Date of Birth"
  }, 
  {
   "doctype": "DocField", 
@@ -102,10 +108,27 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "c5", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "c_number", 
   "fieldtype": "Data", 
-  "label": "Contact Number", 
+  "label": "Mobile Number", 
   "reqd": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "telephone_no", 
+  "fieldtype": "Data", 
+  "label": "Alternate Number"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "address1", 
+  "fieldtype": "Small Text", 
+  "label": "Address Details Resident"
  }, 
  {
   "doctype": "DocField", 
@@ -136,6 +159,13 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "account_type", 
+  "fieldtype": "Data", 
+  "label": "Account Type", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "column_break_10", 
   "fieldtype": "Column Break"
  }, 
@@ -162,25 +192,27 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "user_address", 
+  "fieldtype": "Small Text", 
+  "hidden": 1, 
+  "label": "User Address", 
+  "reqd": 0
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "map_details", 
   "fieldtype": "Section Break", 
   "label": "Map Details"
  }, 
  {
+  "default": "Maharashtra", 
   "doctype": "DocField", 
   "fieldname": "state", 
   "fieldtype": "Select", 
-  "hidden": 0, 
+  "hidden": 1, 
   "label": "State", 
   "options": "Maharashtra\nGujrat\nKarnataka", 
   "reqd": 0
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "address", 
-  "fieldtype": "Data", 
-  "label": "Address", 
-  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
@@ -188,16 +220,132 @@
   "fieldtype": "Data", 
   "hidden": 0, 
   "label": "Lat", 
-  "read_only": 1, 
-  "reqd": 1
+  "read_only": 0, 
+  "reqd": 0
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "lon", 
   "fieldtype": "Data", 
   "label": "Longitude", 
-  "read_only": 1, 
-  "reqd": 1
+  "read_only": 0, 
+  "reqd": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "address", 
+  "fieldtype": "Small Text", 
+  "label": "Address Details Site", 
+  "read_only": 0, 
+  "reqd": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ser_inf", 
+  "fieldtype": "Section Break", 
+  "label": "Service Information"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "exp", 
+  "fieldtype": "Data", 
+  "label": "Experience Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "veh_ser", 
+  "fieldtype": "Select", 
+  "label": "Type of Vehicles Serviced", 
+  "options": "Hero\nBajaj\nHonda\nTVS\nYamaha\nMahindra\nRoyal Enfield\nSuzuki\nOther"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ser_dly", 
+  "fieldtype": "Int", 
+  "label": "Number of Vehicles Serviced Daily"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "number_of_vehicles_serviced_monthly", 
+  "fieldtype": "Int", 
+  "label": "Number of Vehicles Serviced Monthly"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "opn_hrs", 
+  "fieldtype": "Time", 
+  "label": "Hours of Operation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "names_of_team_members", 
+  "fieldtype": "Small Text", 
+  "label": "Names of Team Members"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "size_of_team", 
+  "fieldtype": "Int", 
+  "label": "Size of team"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ownership", 
+  "fieldtype": "Select", 
+  "label": "Ownership", 
+  "options": "Own\nPartnership"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "area_of_site", 
+  "fieldtype": "Data", 
+  "label": "Area of Site"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "premise", 
+  "fieldtype": "Select", 
+  "label": "Premise", 
+  "options": "Rented\nOwned"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "holidays_of_the_year", 
+  "fieldtype": "Small Text", 
+  "label": "Holidays of the Year"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "weekly_off", 
+  "fieldtype": "Select", 
+  "label": "Weekly Off", 
+  "options": "Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "number_of_batteries_sold_monthly", 
+  "fieldtype": "Int", 
+  "label": "Number of Batteries Sold Monthly"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "types_of_batteries_sold_monthly", 
+  "fieldtype": "Small Text", 
+  "label": "Types of Batteries Sold Monthly"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "type_of_phone_owned", 
+  "fieldtype": "Select", 
+  "label": "Type of Phone Owned", 
+  "options": "Nokia\nApple\nSamsung\nLenovo\nXolo\nOppo\nLava\nCelkon\nIntex\nSpice\nVideocon\nMicromax\nReliance\nLG\nIntex\nI-ball\nOlive\nOnida\nSimmtronics\nSiemens\nMicrosoft Mobile \nGionee\nHuawei\nBlackberry\nHaier\nOnePlus\nsony\nToshiba\nPanasonic\nSansui\nMitsubishi\nVoice Mobile\nAcer\nHTC"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "srt_Typ", 
+  "fieldtype": "Select", 
+  "label": "Smartphone Type", 
+  "options": "Android\nIOS\nWindows\nSymbian\nLinux\nFirefox\nBlackberry\nOther"
  }, 
  {
   "cancel": 1, 

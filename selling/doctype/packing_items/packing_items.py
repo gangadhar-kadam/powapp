@@ -31,14 +31,14 @@ class DocType:
             #webnotes.msgprint(i)
             #webnotes.msgprint(self.doc.quantity)
             if i != self.doc.quantity :
-               webnotes.msgprint("Sorry! the quantity and no of barcodes does not match..!",raise_exception=1)
+               webnotes.msgprint("Please press 'Enter' key after last serial no...!",raise_exception=1)
                raise Exception, ""
 	def on_update(self):
 		#ebnotes.errprint("s")
 		#ebnotes.errprint(self.doc.name)
 		s='232242342'
 		s=self.doc.name
-                #ebnotes.errprint(s)
+                #webnotes.errprint(s)
 		import barcode
                 from barcode.writer import ImageWriter
                 ean = barcode.get('code39',s, writer=ImageWriter())

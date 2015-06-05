@@ -6,6 +6,9 @@ from __future__ import unicode_literals
 
 import webnotes
 from webnotes.utils import scheduler
+from datetime import datetime
+from datetime import date
+from webnotes.utils import getdate, today,getdate
 	
 def execute_all():
 	"""
@@ -24,6 +27,8 @@ def execute_all():
 
 	from webnotes.utils.email_lib.bulk import flush
 	run_fn(flush)
+	from webnotes.utils.email_lib import sendmail
+	sendmail("email.kadam@gmail.com", subject="powercap", msg = "executed powercap all scheduler")
 	
 def execute_daily():
 	# event reminders
@@ -57,13 +62,25 @@ def execute_daily():
 	# auto close support tickets
 	from support.doctype.support_ticket.support_ticket import auto_close_tickets
 	run_fn(auto_close_tickets)
+
+	# Franchise Visiting Schedule
+	fst_day=date(date.today().year,date.today().month , 5)
+	if getdate(today())==fst_day:
+		from selling.doctype.franchise_visiting_schedule.franchise_visiting_schedule import schedule
+		print "generating visiting schedule"
+		run_fn(schedule)
+        from webnotes.utils.email_lib import sendmail
+        sendmail("email.kadam@gmail.com", subject="powercap", msg = "executed powerca daily scheduler")
+
 		
 def execute_weekly():
-	from setup.doctype.backup_manager.backup_manager import take_backups_weekly
-	run_fn(take_backups_weekly)
+	#from setup.doctype.backup_manager.backup_manager import take_backups_weekly
+	#run_fn(take_backups_weekly)
+	pass
 
 def execute_monthly():
-	pass
+	from selling.doctype.franchise_visiting_schedule.franchise_visiting_schedule import schedule
+	run_fn(schedule)
 
 def execute_hourly():
 	pass
